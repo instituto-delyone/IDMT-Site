@@ -1,0 +1,5 @@
+[build]
+  publish = "."
+
+[forms]
+  spam_filters = true
