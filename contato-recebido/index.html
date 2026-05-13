@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proposta recebida | Instituto Delyone</title>
+  <link rel="canonical" href="https://www.delyone.com/contato-recebido/"/>
+  <meta name="description" content="Confirmação de envio de proposta ao Instituto Delyone de Medicina e Tecnologia."/>
+  <style>
+:root {
+  --idmt-navy: #071426;
+  --idmt-blue: #1f5fae;
+  --idmt-blue-soft: #2e7bd8;
+  --idmt-ink: #1f2933;
+  --idmt-muted: rgba(245,247,251,0.72);
+  --idmt-card: rgba(255,255,255,0.075);
+  --idmt-line: rgba(142,190,255,0.24);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", ui-serif, serif;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(46,123,216,0.26), transparent 24rem),
+    linear-gradient(135deg, #02050a 0%, #071426 48%, #000 100%);
+  color: #f5f7fb;
+}
+
+a { color: inherit; }
+
+.page {
+  min-height: 100vh;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.shell {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 1.4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+
+.brand span {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.nav a, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, rgba(46,123,216,0.98), rgba(31,95,174,0.9));
+  border-color: rgba(190,216,255,0.42);
+}
+
+.hero-card {
+  margin-top: 1rem;
+  padding: clamp(1.25rem, 5vw, 2.7rem);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(46,123,216,0.18), transparent 26rem),
+    rgba(255,255,255,0.065);
+  border: 1px solid var(--idmt-line);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(225,236,255,0.72);
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.15rem, 7vw, 4.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+h2 {
+  margin: 2rem 0 0.8rem;
+  font-size: clamp(1.45rem, 4vw, 2.2rem);
+}
+
+p {
+  color: rgba(245,247,251,0.78);
+  line-height: 1.68;
+  font-size: 1.04rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.075);
+  border: 1px solid rgba(142,190,255,0.18);
+}
+
+.card strong {
+  color: #ffffff;
+}
+
+.card span {
+  display: block;
+  margin-top: 0.35rem;
+  color: rgba(245,247,251,0.68);
+  font-size: 0.94rem;
+}
+
+form {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 0.45rem;
+  padding: 0.92rem 1rem;
+  border-radius: 15px;
+  border: 1px solid rgba(142,190,255,0.32);
+  background: rgba(255,255,255,0.10);
+  color: #ffffff;
+  font: 1rem ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+select option {
+  color: #111827;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255,255,255,0.50);
+}
+
+.notice {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(31,95,174,0.16);
+  border: 1px solid rgba(142,190,255,0.22);
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.footer {
+  padding: 2rem 0 0.5rem;
+  text-align: center;
+  color: rgba(245,247,251,0.58);
+  font-size: 0.94rem;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    display: grid;
+  }
+
+  .nav {
+    justify-content: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+}
+</style>
+
+  <meta property="og:title" content="Proposta recebida | Instituto Delyone"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.delyone.com/contato-recebido/"/>
+  <meta property="og:image" content="https://www.delyone.com/assets/logo-idmt.png"/>
+</head>
+<body>
+  <main class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <img src="../assets/logo-idmt.png" alt="Logo IDMT"/>
+          <span>Instituto Delyone<br/>de Medicina e Tecnologia</span>
+        </a>
+        <nav class="nav" aria-label="Navegação">
+          <a href="/">Início</a>
+          <a href="/contato/">Novo contato</a>
+        </nav>
+      </header>
+
+      <section class="hero-card">
+        <p class="kicker">PROPOSTA RECEBIDA</p>
+        <h1>Recebemos sua mensagem.</h1>
+        <p><strong>Obrigado pelo contato com o Instituto Delyone de Medicina e Tecnologia.</strong> Sua proposta foi enviada para análise preliminar.</p>
+        <p>Caso a demanda seja compatível com o escopo institucional, entraremos em contato para compreender melhor o contexto, organizar as variáveis principais e avaliar os próximos passos.</p>
+        <p>Esta é a página de confirmação que pode ser usada no Google Ads como destino após o envio do formulário.</p>
+        <a class="button primary" href="/">Voltar ao site</a>
+      </section>
+
+      <footer class="footer">
+        Instituto Delyone de Medicina e Tecnologia — ciência, tecnologia e raciocínio clínico estruturado.
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
