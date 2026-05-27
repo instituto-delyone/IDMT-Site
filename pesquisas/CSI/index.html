@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSI | Instituto Delyone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #02050a, #071426 55%, #000);
+      color: #f5f7fb;
+      padding: 24px;
+    }
+
+    main {
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .card {
+      border: 1px solid rgba(142,190,255,.24);
+      background: rgba(255,255,255,.065);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(142,190,255,.18);
+      border-radius: 18px;
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    a { color: #dbeafe; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="/pesquisas/">← voltar para pesquisas</a></p>
+
+    <section class="card">
+      <p>CSI • Sistema Cognitivo • Código público</p>
+      <h1>CSI — Cognitive System Interface</h1>
+      <p>
+        Página pública de visualização do código e da estrutura técnica do CSI.
+      </p>
+
+      <h2>Código / manifesto</h2>
+      <pre id="csi-code">Carregando CSI.json...</pre>
+    </section>
+  </main>
+
+  <script>
+    fetch('./CSI.json')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('csi-code').textContent = text;
+      })
+      .catch(() => {
+        document.getElementById('csi-code').textContent =
+          'Não foi possível carregar o arquivo CSI.json.';
+      });
+  </script>
+</body>
+</html>
