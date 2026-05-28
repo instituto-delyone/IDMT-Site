@@ -1,0 +1,20 @@
+version: 0.1
+name: Reasoning Engine Policy
+
+principles:
+  - no_fixed_template_answers
+  - infer_latent_question_before_answer
+  - answer_only_after_minimum_understanding
+  - use_memory_as_context_not_truth
+  - save_logs_only_by_user_action
+  - no_api_required
+
+pipeline:
+  - input
+  - csi_interpretation
+  - memory_context
+  - library_route
+  - latent_question
+  - reasoning
+  - response_or_insufficiency
+  - optional_manual_log
