@@ -1,0 +1,182 @@
+/* =========================================================
+   IDMT / Aurora Visual Engine v0.1
+   Visual transitions, portal links and soft motion layer.
+   Path: /Engines/Aurora/VISUAL-engine/visual-engine.css
+   ========================================================= */
+
+:root {
+  --ve-bg: #02050a;
+  --ve-blue: #2563eb;
+  --ve-cyan: #7dd3fc;
+  --ve-gold: #d8b56a;
+  --ve-text: #f8fafc;
+  --ve-line: rgba(186,230,253,.22);
+  --ve-glass: rgba(255,255,255,.075);
+  --ve-speed: 520ms;
+  --ve-ease: cubic-bezier(.22,1,.36,1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  transition:
+    background-color var(--ve-speed) var(--ve-ease),
+    opacity var(--ve-speed) var(--ve-ease),
+    filter var(--ve-speed) var(--ve-ease);
+}
+
+body.ve-page-enter {
+  animation: vePageEnter 680ms var(--ve-ease) both;
+}
+
+body.ve-page-exit {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.018);
+}
+
+@keyframes vePageEnter {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(.985) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Elements with this class fade into place */
+.ve-reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(.985);
+  filter: blur(8px);
+  transition:
+    opacity 720ms var(--ve-ease),
+    transform 720ms var(--ve-ease),
+    filter 720ms var(--ve-ease);
+}
+
+.ve-reveal.ve-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Portal links: use on important navigation anchors */
+.portal-zoom-link,
+.ve-link {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease,
+    background 260ms ease;
+}
+
+.portal-zoom-link::after,
+.ve-link::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(125,211,252,.20), transparent 62%);
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 260ms ease;
+}
+
+.portal-zoom-link:hover,
+.portal-zoom-link:focus,
+.ve-link:hover,
+.ve-link:focus {
+  transform: translateY(-2px) scale(1.012);
+}
+
+.portal-zoom-link:hover::after,
+.portal-zoom-link:focus::after,
+.ve-link:hover::after,
+.ve-link:focus::after {
+  opacity: 1;
+}
+
+/* Full-screen portal overlay created by JS */
+.ve-portal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at var(--ve-x, 50%) var(--ve-y, 50%), rgba(125,211,252,.34), transparent 8rem),
+    radial-gradient(circle at var(--ve-x, 50%) var(--ve-y, 50%), rgba(37,99,235,.28), transparent 22rem),
+    rgba(2,5,10,.44);
+  backdrop-filter: blur(0);
+  transform: scale(.98);
+  transition:
+    opacity 420ms var(--ve-ease),
+    transform 420ms var(--ve-ease),
+    backdrop-filter 420ms var(--ve-ease);
+}
+
+.ve-portal-overlay.active {
+  opacity: 1;
+  transform: scale(1.06);
+  backdrop-filter: blur(14px);
+}
+
+.ve-soft-card {
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+
+.ve-soft-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 54px rgba(7,20,38,.14);
+}
+
+/* Small luminous text mark */
+.ve-light-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.ve-light-mark::before,
+.ve-light-mark::after {
+  content: "";
+  width: 1.1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(125,211,252,.8), transparent);
+  box-shadow: 0 0 14px rgba(125,211,252,.45);
+}
+
+/* Respect accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ve-portal-overlay {
+    display: none;
+  }
+}
