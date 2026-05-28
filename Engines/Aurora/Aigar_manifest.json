@@ -1,0 +1,23 @@
+{
+  "root": "Engines/Aurora",
+  "scan_mode": "recursive",
+  "default_role": "library_candidate",
+  "roles": {
+    "AIGAR-engine": "runtime",
+    "CSI-engine": "semantic_engine",
+    "TIME-engine": "time_engine",
+    "Log-engine": "log_engine",
+    "Reasoning-engine": "reasoning_engine",
+    "VISUAL-engine": "visual_engine",
+    "Bibliotecas": "library_root"
+  },
+  "ignore_as_answer": [
+    "README.md",
+    "index.json",
+    "topics.yaml",
+    "aigar_manifest.json",
+    ".gitkeep"
+  ],
+  "answerable_extensions": [".md", ".txt"],
+  "rule": "Arquivos sem função declarada e com extensão permitida são candidatos de biblioteca."
+}
