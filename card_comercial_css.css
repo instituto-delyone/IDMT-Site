@@ -1,0 +1,12 @@
+/* ===== CARD COMERCIAL ===== */
+.comercial-card{position:relative;overflow:hidden;color:#f8fafc!important;border:1px solid rgba(190,216,255,.14);background:radial-gradient(circle at center,rgba(70,120,255,.18),transparent 64%),linear-gradient(180deg,rgba(10,15,28,.98),rgba(5,10,20,.98));text-decoration:none!important}
+.card-glow{position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(70,120,255,.18),transparent 60%);filter:blur(50px);z-index:0}
+.comercial-card *{position:relative;z-index:1}
+.card-top{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.mini-tag{padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(248,250,252,.70)}
+.comercial-card strong{color:#fff!important;font-size:1.08rem;line-height:1.22}
+.comercial-card span{color:rgba(248,250,252,.70)!important}
+.timeline-preview{display:flex;align-items:flex-end;gap:8px;height:54px;margin-top:16px}
+.timeline{width:7px;border-radius:999px}
+.timeline.bad{height:16px;background:#4b5563}.timeline.neutral{height:28px;background:#64748b}.timeline.good{height:42px;background:#3b82f6}.timeline.best{height:54px;background:#60a5fa;box-shadow:0 0 18px rgba(96,165,250,.45)}
+.card-footer{display:block;margin-top:12px;font-size:.72rem!important;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,250,252,.52)!important}

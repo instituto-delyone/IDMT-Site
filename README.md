@@ -1,3 +1,4 @@
-# IDMT-Site
-Official website of Instituto Delyone de Medicina e Tecnologia.
-new branch, for lab tests
+# Comercial — Instituto Delyone
+
+Use /Comercial/index.html como landing page.
+Cole o snippet e o CSS na home/laboratório quando quiser exibir o card.
