@@ -1,0 +1,29 @@
+{
+  "version": "0.1",
+  "libraries": {
+    "fisiologia": {
+      "name": "Fisiologia",
+      "index_path": "/Engines/Aurora/Bibliotecas/Fisiologia/index.json",
+      "domain": "clinical",
+      "default_chunk_mode": "page_pointer"
+    },
+    "time": {
+      "name": "Time",
+      "index_path": "/Time/time-core.json",
+      "domain": "temporal",
+      "default_chunk_mode": "direct_json"
+    },
+    "csi": {
+      "name": "CSI",
+      "index_path": "/Engines/Aurora/CSI-engine/csi.json",
+      "domain": "semantic",
+      "default_chunk_mode": "direct_semantic_core"
+    }
+  },
+  "flow": [
+    "CSIEngine.prepareForAIGAR(input)",
+    "LibraryRouter.routeFromCSIPacket(packet)",
+    "LibraryRouter.prepareContext(route)",
+    "AIGAR.respondWithContext(input, context)"
+  ]
+}

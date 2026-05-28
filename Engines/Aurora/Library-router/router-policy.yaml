@@ -1,0 +1,20 @@
+version: 0.1
+name: Library Router Policy
+
+principles:
+  - do_not_treat_library_as_summary
+  - chunks_are_pointers_not_replacements
+  - prefer_page_level_context
+  - route_after_semantic_classification
+  - keep_original_sources_preserved
+
+safety:
+  - do_not_delete_original_pdf
+  - do_not_overwrite_index_without_confirmation
+  - do_not_claim_full_reading_when_only_index_was_used
+  - always_keep_source_filename_and_page_range
+
+default_libraries:
+  clinical: fisiologia
+  temporal: time
+  semantic: csi

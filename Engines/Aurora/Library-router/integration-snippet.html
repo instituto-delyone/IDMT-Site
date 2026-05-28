@@ -1,0 +1,12 @@
+<!-- Library Router integration -->
+<script src="/Engines/Aurora/CSI-engine/csi-core.js"></script>
+<script src="/Engines/Aurora/Library-router/library-router.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  if (window.CSIEngine) await CSIEngine.init();
+  if (window.LibraryRouter) await LibraryRouter.init();
+
+  console.log("CSI + Library Router online");
+});
+</script>
