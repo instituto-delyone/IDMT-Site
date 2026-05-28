@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Comercial | Instituto Delyone</title>
+<meta name="theme-color" content="#02050a"/>
+<link rel="icon" type="image/png" href="/assets/icon-512.png"/>
+<style>
+:root{
+  --bg:#02050a;
+  --navy:#071426;
+  --blue:#2563eb;
+  --cyan:#7dd3fc;
+  --gold:#d8b56a;
+  --text:#f8fafc;
+  --muted:rgba(248,250,252,.68);
+  --line:rgba(186,230,253,.22);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  background:#02050a;
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+}
+body{overflow-x:hidden}
+.page{
+  min-height:100vh;
+  padding:18px;
+  display:flex;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(37,99,235,.28),transparent 28rem),
+    radial-gradient(circle at 12% 82%,rgba(216,181,106,.10),transparent 18rem),
+    linear-gradient(135deg,#02050a,#071426 54%,#000);
+}
+.shell{
+  width:min(1080px,100%);
+  min-height:96vh;
+  border:1px solid var(--line);
+  border-radius:38px;
+  padding:clamp(22px,5vw,60px);
+  background:
+    radial-gradient(circle at 50% 10%,rgba(125,211,252,.12),transparent 22rem),
+    linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+  box-shadow:0 38px 120px rgba(0,0,0,.46),inset 0 0 0 1px rgba(255,255,255,.035);
+  backdrop-filter:blur(18px);
+  overflow:hidden;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  margin-bottom:46px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:rgba(248,250,252,.82);
+  text-decoration:none;
+}
+.brand img{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  border-radius:14px;
+}
+.brand span{
+  font-size:.76rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(248,250,252,.58);
+}
+.back{
+  color:rgba(248,250,252,.72);
+  text-decoration:none;
+  border:1px solid rgba(186,230,253,.20);
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.055);
+}
+.hero{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 22px;
+  position:relative;
+  z-index:3;
+}
+.kicker{
+  margin:0 0 15px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:rgba(186,230,253,.66);
+  font-size:.74rem;
+}
+h1{
+  margin:0;
+  font-size:clamp(2.45rem,8vw,5.7rem);
+  line-height:.94;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.lead{
+  max-width:760px;
+  margin:22px auto 0;
+  color:var(--muted);
+  font-size:clamp(1.04rem,3.4vw,1.28rem);
+  line-height:1.68;
+}
+.tree-stage{
+  position:relative;
+  min-height:720px;
+  margin:18px auto 0;
+  width:min(930px,100%);
+}
+.tree-stage svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  opacity:.94;
+}
+.trunk{
+  fill:none;
+  stroke:rgba(226,232,240,.62);
+  stroke-width:3.2;
+  stroke-linecap:round;
+  filter:drop-shadow(0 0 14px rgba(125,211,252,.16));
+}
+.branch{
+  fill:none;
+  stroke:rgba(148,163,184,.42);
+  stroke-width:2.2;
+  stroke-linecap:round;
+}
+.branch.good{
+  stroke:rgba(96,165,250,.78);
+  stroke-width:2.7;
+  filter:drop-shadow(0 0 16px rgba(96,165,250,.32));
+}
+.branch.gold{
+  stroke:rgba(216,181,106,.92);
+  stroke-width:3;
+  filter:drop-shadow(0 0 18px rgba(216,181,106,.30));
+}
+.signal{
+  fill:rgba(125,211,252,.78);
+  filter:drop-shadow(0 0 9px rgba(125,211,252,.8));
+}
+.node{
+  position:absolute;
+  min-width:150px;
+  max-width:210px;
+  padding:13px 14px;
+  border-radius:20px;
+  border:1px solid rgba(186,230,253,.16);
+  background:rgba(255,255,255,.062);
+  color:rgba(248,250,252,.73);
+  backdrop-filter:blur(12px);
+  box-shadow:0 16px 36px rgba(0,0,0,.22);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:.88rem;
+}
+.node small{
+  display:block;
+  margin-bottom:4px;
+  color:rgba(248,250,252,.42);
+}
+.node.best{
+  border-color:rgba(216,181,106,.48);
+  background:linear-gradient(135deg,rgba(216,181,106,.20),rgba(37,99,235,.13));
+  color:#fff;
+  box-shadow:0 24px 58px rgba(0,0,0,.28),0 0 34px rgba(216,181,106,.16);
+}
+.n1{left:4%;top:10%}
+.n2{right:8%;top:13%}
+.n3{left:2%;top:34%}
+.n4{right:4%;top:38%}
+.n5{left:12%;top:62%}
+.n6{right:6%;top:66%}
+.intervention{
+  position:absolute;
+  left:50%;
+  top:42%;
+  transform:translate(-50%,-50%);
+  width:min(470px,90vw);
+  padding:28px 26px;
+  border-radius:30px;
+  text-align:center;
+  border:1px solid rgba(216,181,106,.36);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(216,181,106,.20),transparent 17rem),
+    linear-gradient(180deg,rgba(7,20,38,.84),rgba(2,5,10,.90));
+  box-shadow:0 30px 82px rgba(0,0,0,.44),0 0 50px rgba(37,99,235,.12);
+  backdrop-filter:blur(18px);
+}
+.intervention span{
+  display:block;
+  letter-spacing:.30em;
+  text-transform:uppercase;
+  color:rgba(216,181,106,.80);
+  font-size:.72rem;
+  margin-bottom:11px;
+}
+.intervention strong{
+  display:block;
+  font-size:clamp(1.6rem,5vw,2.45rem);
+  line-height:1.08;
+  font-weight:500;
+}
+.intervention p{
+  margin:15px auto 0;
+  color:rgba(248,250,252,.66);
+  line-height:1.58;
+  font-size:1rem;
+}
+.value-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:36px;
+}
+.value{
+  padding:18px 16px;
+  border-radius:22px;
+  border:1px solid rgba(186,230,253,.16);
+  background:rgba(255,255,255,.052);
+}
+.value strong{display:block;color:#fff;font-size:1.05rem}
+.value span{display:block;margin-top:8px;color:var(--muted);line-height:1.45;font-size:.92rem}
+.cta{
+  margin-top:34px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.button{
+  min-height:50px;
+  padding:13px 22px;
+  border-radius:999px;
+  border:1px solid rgba(186,230,253,.24);
+  background:rgba(255,255,255,.075);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:700;
+}
+.button.primary{
+  background:linear-gradient(135deg,rgba(37,99,235,.88),rgba(31,95,174,.58));
+  border-color:rgba(186,230,253,.40);
+}
+.footer{
+  margin-top:34px;
+  text-align:center;
+  color:rgba(248,250,252,.42);
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+@media(max-width:740px){
+  .page{padding:10px}
+  .shell{border-radius:30px;padding:22px 16px 30px}
+  .brand span{display:none}
+  .tree-stage{min-height:780px;margin-top:8px}
+  .node{min-width:124px;max-width:155px;font-size:.78rem;padding:10px 11px}
+  .n1{left:0;top:8%}
+  .n2{right:0;top:11%}
+  .n3{left:0;top:32%}
+  .n4{right:0;top:38%}
+  .n5{left:1%;top:68%}
+  .n6{right:0;top:70%}
+  .intervention{top:46%;padding:22px 18px}
+  .value-strip{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="shell">
+  <div class="topbar">
+    <a class="brand" href="/">
+      <img src="/assets/logo-idmt.png" alt="Instituto Delyone">
+      <span>Instituto Delyone</span>
+    </a>
+    <a class="back" href="/">Voltar</a>
+  </div>
+
+  <section class="hero">
+    <p class="kicker">Comercial</p>
+    <h1>O Instituto não vende. Ele possibilita.</h1>
+    <p class="lead">
+      O Instituto Delyone cria condições para que o tempo jogue a seu favor:
+      reorganizando decisões, trajetórias, informação e execução.
+    </p>
+  </section>
+
+  <section class="tree-stage" aria-label="Árvore de linhas do tempo">
+    <svg viewBox="0 0 900 720" aria-hidden="true">
+      <path class="trunk" d="M455 700 C452 625 454 570 454 515 C455 455 452 395 456 335 C460 255 458 170 455 70"/>
+      <path class="branch" d="M456 125 C382 132 300 104 205 70"/>
+      <path class="branch" d="M456 160 C535 145 608 110 718 88"/>
+      <path class="branch" d="M456 300 C365 330 260 328 126 310"/>
+      <path class="branch good" d="M456 340 C552 338 635 360 784 330"/>
+      <path class="branch" d="M456 510 C365 558 262 576 132 590"/>
+      <path class="branch gold" d="M456 520 C540 548 641 574 792 586"/>
+      <circle class="signal" cx="455" cy="520" r="5"/>
+      <circle class="signal" cx="456" cy="340" r="4"/>
+      <circle class="signal" cx="455" cy="70" r="3"/>
+    </svg>
+
+    <div class="node n1"><small>linha sem estrutura</small>ruído • atraso • desgaste</div>
+    <div class="node n2"><small>linha reativa</small>decisões isoladas</div>
+    <div class="node n3"><small>linha instável</small>perda de contexto</div>
+    <div class="node n4"><small>linha técnica</small>método • documentação</div>
+    <div class="node n5"><small>linha organizada</small>clareza • execução</div>
+    <div class="node best n6"><small>você + instituto</small>tempo a favor</div>
+
+    <div class="intervention">
+      <span>ponto de intervenção</span>
+      <strong>Você + Instituto</strong>
+      <p>
+        Não é promessa de futuro. É arquitetura de decisão para aumentar a probabilidade
+        de trajetórias melhores.
+      </p>
+    </div>
+  </section>
+
+  <section class="value-strip">
+    <div class="value"><strong>Contexto</strong><span>Organização do problema antes da solução.</span></div>
+    <div class="value"><strong>Raciocínio</strong><span>Estruturação da decisão em cenários complexos.</span></div>
+    <div class="value"><strong>Execução</strong><span>Transformação de intenção em caminho operacional.</span></div>
+    <div class="value"><strong>Tempo</strong><span>Redução de entropia e aumento de direção.</span></div>
+  </section>
+
+  <div class="cta">
+    <a class="button primary" href="/contato/">Enviar proposta para análise</a>
+    <a class="button" href="/pesquisas/">Ver pesquisas e projetos</a>
+    <a class="button" href="/Flagship/">Abrir Flagship</a>
+  </div>
+
+  <p class="footer">Medicine • Technology • Cognition • Timeline Architecture</p>
+</section>
+</main>
+</body>
+</html>
