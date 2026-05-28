@@ -16,6 +16,7 @@ const BIBLIOTECA_FISIOLOGIA = path.join(
   "Engines",
   "Aurora",
   "Bibliotecas",
+  "Medicina",
   "Fisiologia"
 );
 
