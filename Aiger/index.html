@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIGER Portal | Diagnosis</title>
+<meta name="theme-color" content="#02050a"/>
+<link rel="stylesheet" href="/Engines/Aurora/AIGAR-engine/aigar-style.css"/>
+<link rel="stylesheet" href="/Engines/Aurora/VISUAL-engine/visual-engine.css"/>
+</head>
+<body>
+<main class="aiger-page">
+<section class="aiger-shell">
+<header class="aiger-header">
+<a class="back portal-zoom-link" href="/pesquisas/Diagnosis/">← Diagnosis</a>
+<span class="engine-mark">AIGAR Engine v0.1</span>
+</header>
+
+<section class="hero">
+<p class="kicker">Diagnosis Intelligence Portal</p>
+<h1>AIGER</h1>
+<p class="lead">Interface experimental para raciocínio clínico estruturado, simulação decisória e comunicação com a AIGAR-engine.</p>
+</section>
+
+<section class="status-grid">
+<div class="status-card"><strong>AIGAR</strong><span id="aigar-status">carregando núcleo...</span></div>
+<div class="status-card"><strong>CSI</strong><span>camada linguística preparada</span></div>
+<div class="status-card"><strong>Aurora</strong><span>coordenação contextual</span></div>
+</section>
+
+<section class="chat-panel">
+<div class="message system"><strong>AIGER</strong><p>Núcleo inicial carregando. Envie um caso clínico, hipótese, conduta, documento ou problema complexo para estruturar o raciocínio.</p></div>
+<div id="chat-log"></div>
+<form id="aiger-form" class="input-row">
+<textarea id="aiger-input" placeholder="Digite aqui: caso clínico, hipótese diagnóstica, conduta, plano, documento ou problema..." rows="4"></textarea>
+<button type="submit">Enviar</button>
+</form>
+</section>
+
+<section class="quick-actions">
+<button data-prompt="Estruture este caso em síndrome principal, riscos imediatos, hipóteses diferenciais, exames iniciais, conduta e reavaliação.">Caso clínico</button>
+<button data-prompt="Monte uma árvore de decisão com alternativas, riscos, critérios de gravidade e próximos passos.">Árvore de decisão</button>
+<button data-prompt="Analise este texto/documento em fatos, evidências, fragilidades, linha do tempo e próximos passos.">Documento</button>
+<button data-prompt="Aplique o raciocínio híbrido: etapas numeradas, hipóteses alternativas, conectivos lógicos e síntese final.">Raciocínio híbrido</button>
+</section>
+
+<footer class="aiger-footer">AIGAR • CSI • Aurora • Diagnosis • Biblioteca futura</footer>
+</section>
+</main>
+<script src="/Engines/Aurora/AIGAR-engine/aigar-core.js"></script>
+<script src="/Engines/Aurora/VISUAL-engine/visual-engine.js"></script>
+</body>
+</html>
