@@ -1,0 +1,16 @@
+{
+  "name": "aigar-railway-backend",
+  "version": "0.1.0",
+  "description": "Motor backend do AIGAR para Railway: lê chunks locais e responde ao front-end.",
+  "main": "leitor.js",
+  "scripts": {
+    "start": "node leitor.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
