@@ -1,0 +1,15 @@
+biblioteca: Fisiologia
+versao: '0.1'
+modo: flat-folder-indexed-pdf-pointers
+regra_de_pasta: todos_os_arquivos_dentro_de_Fisiologia
+temas_iniciais:
+  - fisiologia_celular
+  - neurofisiologia
+  - fisiologia_cardiovascular
+  - fisiologia_respiratoria
+  - fisiologia_renal
+  - fisiologia_gastrointestinal
+  - endocrinologia
+  - reproducao
+  - metabolismo
+  - sangue_hemostasia
