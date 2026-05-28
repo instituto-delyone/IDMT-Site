@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagnosis | Instituto Delyone</title>
+
+  <style>
+:root{
+  --navy:#071426;
+  --deep:#02050a;
+  --blue:#1f5fae;
+  --blue-soft:#2e7bd8;
+  --ink:#071426;
+  --muted:#6b7280;
+  --line:rgba(142,190,255,.24);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#f5f7fb;
+  color:var(--ink);
+}
+
+a{color:inherit}
+
+.diagnosis-page{
+  min-height:100vh;
+  overflow:hidden;
+}
+
+.hero{
+  position:relative;
+  min-height:760px;
+  padding:70px 22px 0;
+  text-align:center;
+  color:#f5f7fb;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(46,123,216,.22), transparent 26rem),
+    linear-gradient(180deg,#071426 0%,#02050a 88%);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:3;
+  max-width:820px;
+  margin:0 auto;
+}
+
+.hero-title{
+  margin:0 auto 34px;
+  max-width:720px;
+  color:rgba(245,247,251,.88);
+  font-size:clamp(1.55rem,4.8vw,2.65rem);
+  font-weight:400;
+  line-height:1.42;
+}
+
+.hero-buttons{
+  position:relative;
+  z-index:5;
+  width:min(640px,92vw);
+  margin:0 auto;
+  display:grid;
+  gap:16px;
+}
+
+.hero-button{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:clamp(1.08rem,3.8vw,1.45rem);
+  color:#fff;
+  border:1px solid rgba(180,212,255,.32);
+  background:rgba(255,255,255,.075);
+  box-shadow:0 18px 42px rgba(0,0,0,.18);
+  backdrop-filter:blur(10px);
+}
+
+.hero-button.primary{
+  background:linear-gradient(135deg,rgba(46,123,216,.78),rgba(31,95,174,.52));
+  border-color:rgba(190,216,255,.42);
+}
+
+.hero-button.secondary{
+  background:rgba(255,255,255,.055);
+}
+
+.diagnosis-symbol{
+  position:absolute;
+  z-index:1;
+  left:50%;
+  top:315px;
+  width:min(560px,78vw);
+  height:420px;
+  transform:translateX(-50%);
+  opacity:.14;
+  pointer-events:none;
+}
+
+.diagnosis-symbol::before,
+.diagnosis-symbol::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:44%;
+  height:100%;
+  border:34px solid rgba(210,230,255,.32);
+  border-bottom:0;
+  filter:blur(.2px);
+}
+
+.diagnosis-symbol::before{
+  transform:translateX(-50%) skewX(-22deg);
+  border-right:0;
+  border-radius:52% 0 0 0;
+}
+
+.diagnosis-symbol::after{
+  transform:translateX(-50%) skewX(22deg);
+  border-left:0;
+  border-radius:0 52% 0 0;
+}
+
+.diagnosis-mark{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  bottom:78px;
+  transform:translateX(-50%);
+  text-decoration:none;
+  color:rgba(222,236,255,.62);
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  text-align:center;
+  padding:18px 28px;
+}
+
+.diagnosis-mark small{
+  display:block;
+  font-size:.82rem;
+  letter-spacing:.32em;
+  margin-bottom:6px;
+  color:rgba(222,236,255,.58);
+}
+
+.diagnosis-mark strong{
+  display:block;
+  font-size:clamp(2rem,8vw,3.2rem);
+  font-weight:400;
+}
+
+.diagnosis-mark span{
+  display:block;
+  margin-top:8px;
+  font-size:.78rem;
+  letter-spacing:.28em;
+  color:rgba(222,236,255,.62);
+}
+
+.light-section{
+  position:relative;
+  padding:46px 22px 90px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(31,95,174,.10), transparent 22rem),
+    linear-gradient(180deg,#f7f9fc 0%,#ffffff 100%);
+}
+
+.cards{
+  max-width:860px;
+  margin:-4px auto 70px;
+  display:grid;
+  gap:26px;
+}
+
+.info-card{
+  padding:28px 32px;
+  border-radius:28px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(142,190,255,.18);
+  box-shadow:0 18px 50px rgba(7,20,38,.08);
+}
+
+.info-card h2{
+  margin:0 0 10px;
+  font-size:clamp(1.55rem,5vw,2.1rem);
+  line-height:1.1;
+  color:#071426;
+}
+
+.info-card p{
+  margin:0;
+  font-size:clamp(1.08rem,4vw,1.45rem);
+  line-height:1.45;
+  color:#6b7280;
+}
+
+.panel{
+  max-width:900px;
+  margin:0 auto;
+  padding:clamp(28px,5vw,48px);
+  border-radius:32px;
+  background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(236,244,255,.62));
+  border:1px solid rgba(142,190,255,.22);
+  box-shadow:0 20px 70px rgba(7,20,38,.08);
+}
+
+.panel h2{
+  margin:0 0 14px;
+  font-size:clamp(2.2rem,8vw,4rem);
+  line-height:.98;
+  color:#071426;
+}
+
+.panel p{
+  color:#5f6674;
+  font-size:1.08rem;
+  line-height:1.7;
+}
+
+.actions{
+  margin-top:24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 20px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  border:1px solid rgba(31,95,174,.20);
+  background:#fff;
+  color:#071426;
+}
+
+.action.primary{
+  background:linear-gradient(135deg,rgba(46,123,216,.95),rgba(31,95,174,.88));
+  color:white;
+}
+
+@media(max-width:760px){
+  .hero{
+    min-height:680px;
+    padding-top:52px;
+  }
+
+  .diagnosis-symbol{
+    top:308px;
+    width:86vw;
+    height:340px;
+    opacity:.12;
+  }
+
+  .diagnosis-symbol::before,
+  .diagnosis-symbol::after{
+    border-width:24px;
+  }
+
+  .diagnosis-mark{
+    bottom:62px;
+  }
+
+  .cards{
+    margin-top:-8px;
+  }
+
+  .info-card{
+    padding:25px 26px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <main class="diagnosis-page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          Estruturação do raciocínio clínico, integração assistencial e execução médica de alta performance em contextos reais de saúde.
+        </h1>
+
+        <nav class="hero-buttons" aria-label="Ações institucionais">
+          <a class="hero-button primary" href="/sobre.html">Explorar estrutura institucional</a>
+          <a class="hero-button secondary" href="/contato/">Contato institucional</a>
+          <a class="hero-button primary" href="/contato/">Enviar proposta para análise</a>
+        </nav>
+      </div>
+
+      <div class="diagnosis-symbol" aria-hidden="true"></div>
+
+      <a class="diagnosis-mark" href="/pesquisas/diagnosis/" aria-label="Abrir Diagnosis">
+        <small>TESTE</small>
+        <strong>DIAGNOSIS</strong>
+        <span>powered by Aurora</span>
+      </a>
+    </section>
+
+    <section class="light-section">
+
+      <div class="cards" aria-label="Pilares do Diagnosis">
+        <article class="info-card">
+          <h2>Precisão clínica</h2>
+          <p>Organização lógica da avaliação, decisão e conduta médica.</p>
+        </article>
+
+        <article class="info-card">
+          <h2>Integração operacional</h2>
+          <p>Adaptação a equipes, fluxos e instituições de saúde.</p>
+        </article>
+
+        <article class="info-card">
+          <h2>Inovação aplicada</h2>
+          <p>Modelos clínicos e estruturas de decisão com uso prático.</p>
+        </article>
+      </div>
+
+      <section class="panel">
+        <h2>Diagnosis</h2>
+        <p>
+          Sistema de simulação clínica dinâmica voltado à avaliação do raciocínio médico,
+          tomada de decisão e cognição clínica em cenários complexos.
+        </p>
+
+        <div class="actions">
+          <a class="action primary" href="/pesquisas/diagnosis/">Abrir projeto</a>
+          <a class="action" href="/pesquisas/">Voltar para pesquisas</a>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+</body>
+</html>
