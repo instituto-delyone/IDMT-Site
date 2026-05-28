@@ -1,0 +1,24 @@
+{
+  "name": "Clock / Time Engine",
+  "version": "0.1",
+  "role": "contextual clock for reasoning, cache, file aging and cleanup",
+  "principles": [
+    "time is treated as a contextual regulator",
+    "files may gain or lose priority based on age, update rhythm and relevance",
+    "memory should not only store; it should decay, refresh or consolidate",
+    "the system can distinguish active context, cooling context and archive context"
+  ],
+  "states": {
+    "active": "high priority, recently used, should remain accessible",
+    "warm": "still useful, but not immediately active",
+    "cold": "archival, only loaded if specifically relevant",
+    "expired": "candidate for cleanup or compression"
+  },
+  "default_policy": {
+    "active_days": 7,
+    "warm_days": 30,
+    "cold_days": 180,
+    "cleanup_mode": "manual-confirmation",
+    "delete_without_confirmation": false
+  }
+}

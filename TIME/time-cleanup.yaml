@@ -1,0 +1,23 @@
+version: 0.1
+name: time-cleanup-policy
+delete_without_confirmation: false
+
+states:
+  active:
+    max_age_days: 7
+    action: keep_loaded
+  warm:
+    max_age_days: 30
+    action: keep_indexed
+  cold:
+    max_age_days: 180
+    action: archive_reference
+  expired:
+    action: ask_before_cleanup
+
+rules:
+  - never_delete_core_memory_cards
+  - never_delete_uploaded_books
+  - never_delete_release_files
+  - never_delete_checksums
+  - allow_cleanup_of_temp_files_only_after_confirmation
