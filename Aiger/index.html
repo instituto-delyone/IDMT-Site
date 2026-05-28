@@ -47,6 +47,21 @@
 <footer class="aiger-footer">AIGAR • CSI • Aurora • Diagnosis • Biblioteca futura</footer>
 </section>
 </main>
+  <script src="/Engines/Aurora/CSI-engine/csi-core.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  if (window.CSIEngine) {
+    await CSIEngine.init();
+
+    console.log(
+      CSIEngine.explain(
+        "paciente com dispneia, dor torácica e alteração hemodinâmica"
+      )
+    );
+  }
+});
+</script>
 <script src="/Engines/Aurora/AIGAR-engine/aigar-core.js"></script>
 <script src="/Engines/Aurora/VISUAL-engine/visual-engine.js"></script>
 </body>
