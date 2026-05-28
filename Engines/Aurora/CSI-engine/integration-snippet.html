@@ -1,0 +1,10 @@
+<!-- CSI Engine integration -->
+<script src="/Engines/Aurora/CSI-engine/csi-core.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    if(window.CSIEngine){
+      await CSIEngine.init();
+      console.log(CSIEngine.explain("CSI Engine carregado"));
+    }
+  });
+</script>

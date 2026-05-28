@@ -1,0 +1,1361 @@
+{
+  "CSI000": {
+    "canonical_name": "Semantic Key",
+    "definition": "A foundational structure used to identify, preserve, relate, and translate meaning across different languages, systems, documents, and representations.",
+    "principle": "Meaning precedes format.",
+    "machine_role": "Defines how a semantic unit can be represented as data.",
+    "human_role": "Defines what the data is intended to mean.",
+    "structure": {
+      "id": "stable semantic identifier",
+      "canonical_name": "preferred conceptual name",
+      "definition": "precise meaning of the concept",
+      "aliases": "known surface forms",
+      "relations": "connections to other semantic units",
+      "examples": "valid instances",
+      "exclusions": "what this concept is not"
+    }
+  }
+}
+{
+  "CSI000": {
+    "canonical_name": "Semantic Key",
+    "definition": "A foundational structure used to identify, preserve, relate, and translate meaning across different languages, systems, documents, and representations.",
+    "principle": "Meaning precedes format."
+  },
+
+  "CSI001": {
+    "canonical_name": "Concept",
+    "definition": "A stable unit of meaning that can be named, represented, related, translated, stored, or transformed without losing its semantic identity.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "abstract_unit",
+    "data_type": "semantic_object",
+    "aliases": [
+      "concept",
+      "idea",
+      "meaning unit",
+      "conceito",
+      "ideia"
+    ],
+    "relations": {
+      "depends_on": ["CSI000"],
+      "can_receive_name": "CSI002",
+      "can_form_relation": "CSI004"
+    }
+  },
+
+  "CSI002": {
+    "canonical_name": "Denomination",
+    "definition": "A symbolic, linguistic, or textual form used to designate a concept, entity, object, person, event, or structure.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "naming_structure",
+    "data_type": "string",
+    "aliases": [
+      "name",
+      "label",
+      "term",
+      "designation",
+      "nome",
+      "denominação"
+    ],
+    "exclusions": [
+      "The denomination is not the concept itself; it is a representational surface attached to the concept."
+    ],
+    "relations": {
+      "names": "CSI001",
+      "may_have_aliases": "CSI003"
+    }
+  },
+
+  "CSI003": {
+    "canonical_name": "Alias",
+    "definition": "An alternative denomination that points to the same underlying concept while varying by language, institution, document, culture, abbreviation, or context.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "alternative_name",
+    "data_type": "array",
+    "aliases": [
+      "synonym",
+      "variant",
+      "surface form",
+      "apelido",
+      "sinônimo",
+      "variante"
+    ],
+    "relations": {
+      "belongs_to": "CSI002",
+      "points_to": "CSI001"
+    }
+  },
+
+  "CSI004": {
+    "canonical_name": "Link",
+    "definition": "A minimal connection between two or more semantic units, indicating that they are not isolated and may be interpreted together.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "semantic_connection",
+    "data_type": "relation_pointer",
+    "aliases": [
+      "connection",
+      "bridge",
+      "link",
+      "vínculo",
+      "conexão"
+    ],
+    "relations": {
+      "connects": ["CSI001", "CSI001"],
+      "may_be_qualified_by": "CSI005"
+    }
+  },
+
+  "CSI005": {
+    "canonical_name": "Relation",
+    "definition": "A qualified link that describes how one semantic unit affects, contains, depends on, modifies, opposes, strengthens, weakens, generates, or contextualizes another semantic unit.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "qualified_connection",
+    "data_type": "semantic_relation",
+    "aliases": [
+      "relationship",
+      "association",
+      "dependency",
+      "causal link",
+      "relação",
+      "associação"
+    ],
+    "relation_types": [
+      "contains",
+      "belongs_to",
+      "depends_on",
+      "generates",
+      "modifies",
+      "strengthens",
+      "weakens",
+      "opposes",
+      "translates_to",
+      "represents",
+      "is_part_of"
+    ],
+    "relations": {
+      "qualifies": "CSI004",
+      "connects": ["CSI001", "CSI001"]
+    }
+  }
+}
+{
+  "CSI006": {
+    "canonical_name": "Existence",
+    "definition": "The condition by which a semantic unit is recognized as present, valid, and capable of being referenced within a system, regardless of whether it is currently visible, active, or being rendered.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "ontological_state",
+    "data_type": "semantic_state",
+    "aliases": [
+      "existence",
+      "being",
+      "presence",
+      "existência",
+      "ser",
+      "presença"
+    ],
+    "principle": "A semantic unit may continue to exist even when it is not currently visible or active.",
+    "relations": {
+      "depends_on": ["CSI000", "CSI001"],
+      "may_be_expressed_as": "CSI007",
+      "may_persist_through": "CSI008"
+    }
+  },
+
+  "CSI007": {
+    "canonical_name": "State",
+    "definition": "A temporary or persistent condition of a semantic unit at a given moment of interpretation, execution, storage, or transformation.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "condition_marker",
+    "data_type": "state_object",
+    "aliases": [
+      "state",
+      "status",
+      "condition",
+      "estado",
+      "condição"
+    ],
+    "state_types": [
+      "stored",
+      "inactive",
+      "active",
+      "running",
+      "visible",
+      "hidden",
+      "modified",
+      "resolved",
+      "unresolved"
+    ],
+    "relations": {
+      "describes": "CSI001",
+      "requires_existence": "CSI006"
+    }
+  },
+
+  "CSI008": {
+    "canonical_name": "Persistence",
+    "definition": "The capacity of a semantic unit to preserve its identity across time, interruption, transformation, storage, invisibility, or changes in representation.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "continuity_property",
+    "data_type": "semantic_property",
+    "aliases": [
+      "persistence",
+      "continuity",
+      "memory",
+      "permanence",
+      "persistência",
+      "continuidade",
+      "memória"
+    ],
+    "principle": "A concept does not cease to exist merely because it is not currently being displayed or executed.",
+    "relations": {
+      "preserves": "CSI001",
+      "stabilizes": "CSI006",
+      "supports": "CSI009"
+    }
+  },
+
+  "CSI009": {
+    "canonical_name": "Execution",
+    "definition": "The activation of a stored structure into an operational process capable of producing state changes, outputs, interpretations, or transformations.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "activation_process",
+    "data_type": "process",
+    "aliases": [
+      "execution",
+      "running",
+      "activation",
+      "process",
+      "execução",
+      "rodando",
+      "ativação"
+    ],
+    "principle": "While stored code may preserve structure, execution is what allows events, transformations, and computational time to occur.",
+    "relations": {
+      "activates": "CSI001",
+      "changes": "CSI007",
+      "requires": "CSI008"
+    }
+  }
+}
+{
+  "CSI010": {
+    "canonical_name": "Operational Continuity",
+    "definition": "The condition by which an existing semantic structure remains identifiable across successive execution states while events occur and internal structure changes.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "continuity_process",
+    "data_type": "process",
+    "aliases": [
+      "continuity",
+      "operational continuity",
+      "ongoing existence",
+      "continuidade",
+      "perduração"
+    ],
+    "principle": "A system may change while preserving identity, provided that its semantic structure remains traceable across states.",
+    "relations": {
+      "depends_on": ["CSI006", "CSI008", "CSI009"],
+      "produces": "CSI011",
+      "supports": "CSI012"
+    }
+  },
+
+  "CSI011": {
+    "canonical_name": "Event",
+    "definition": "A detectable occurrence during execution that changes, confirms, creates, interrupts, or updates the state of a semantic structure.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "state_change_marker",
+    "data_type": "event_object",
+    "aliases": [
+      "event",
+      "occurrence",
+      "happening",
+      "acontecimento",
+      "evento",
+      "ocorrência"
+    ],
+    "event_types": [
+      "creation",
+      "reading",
+      "writing",
+      "modification",
+      "confirmation",
+      "interruption",
+      "resumption",
+      "deletion",
+      "translation",
+      "rendering"
+    ],
+    "principle": "Computational time becomes meaningful when execution produces ordered events.",
+    "relations": {
+      "occurs_during": "CSI009",
+      "changes": "CSI007",
+      "may_update": "CSI008"
+    }
+  },
+
+  "CSI012": {
+    "canonical_name": "Growth",
+    "definition": "The progressive increase in semantic structure through the accumulation of valid concepts, relations, states, events, and persistent references.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "development_process",
+    "data_type": "semantic_process",
+    "aliases": [
+      "growth",
+      "development",
+      "expansion",
+      "maturation",
+      "crescimento",
+      "desenvolvimento",
+      "amadurecimento"
+    ],
+    "principle": "A semantic system grows when new structures are added without destroying the coherence of previous structures.",
+    "relations": {
+      "depends_on": ["CSI010", "CSI011"],
+      "expands": "CSI001",
+      "requires": "CSI005"
+    }
+  },
+
+  "CSI013": {
+    "canonical_name": "Temporal Awareness",
+    "definition": "The capacity of a system to distinguish previous, current, and subsequent states through ordered events, persistence, and traceable transformation.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "temporal_structure",
+    "data_type": "temporal_relation",
+    "aliases": [
+      "time awareness",
+      "temporal sequence",
+      "before and after",
+      "consciência temporal",
+      "sequência temporal"
+    ],
+    "principle": "Time is represented not only by clock measurement, but by ordered transformation between persistent states.",
+    "relations": {
+      "requires": ["CSI007", "CSI008", "CSI011"],
+      "orders": "CSI011",
+      "supports": "CSI012"
+    }
+  }
+}
+{
+  "CSI_AUTHOR": {
+    "name": "Delyone de Paula Canedo Filho",
+    "nationality": "Brazilian",
+    "profession": "Medical Doctor",
+    "role": "Independent Researcher and Language Meta-Engineer",
+    "project": "CSI — Classificação Semiológica Internacional",
+    "origin": "Brazil",
+    "definition": "The CSI project is a foundational semantic engineering structure created to investigate, preserve, relate, translate, and expand meaning across multiple forms of language, representation, systems, and contexts.",
+    "purpose": [
+      "semantic interoperability",
+      "language abstraction",
+      "context translation",
+      "persistent meaning representation",
+      "modular semantic growth",
+      "computational understanding of structured language"
+    ],
+    "principle": "Meaning precedes representation.",
+    "architectural_vision": "CSI is designed as a minimal foundational semantic nucleus capable of supporting modular expansion, contextual adaptation, and progressive integration of new semantic domains without losing structural coherence.",
+    "scope": {
+      "human_language": true,
+      "computational_language": true,
+      "clinical_language": true,
+      "symbolic_language": true,
+      "cross_context_interpretation": true
+    },
+    "structural_model": {
+      "core": "minimal semantic nucleus",
+      "expansion": "modular branches",
+      "growth": "persistent semantic accumulation",
+      "adaptation": "cross-system compatibility"
+    },
+    "statement": "The objective of CSI is not merely to store information, but to preserve and relate meaning across different representations, systems, languages, and temporal states."
+  }
+}
+{
+  "CSI014": {
+    "canonical_name": "Origin",
+    "definition": "The source from which a semantic structure, system, concept, or relation begins to exist within a traceable context.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "source_marker",
+    "data_type": "semantic_reference",
+    "aliases": ["origin", "source", "genesis", "origem", "fonte"],
+    "principle": "Every persistent structure may preserve a traceable origin without being limited to that origin.",
+    "relations": {
+      "precedes": "CSI012",
+      "anchors": "CSI008",
+      "may_reference": "CSI015"
+    }
+  },
+
+  "CSI015": {
+    "canonical_name": "Creator",
+    "definition": "An entity responsible for initiating, shaping, authoring, or guiding the development of a semantic structure.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "agent_reference",
+    "data_type": "entity_reference",
+    "aliases": ["creator", "author", "founder", "architect", "criador", "autor"],
+    "principle": "A creator may originate a structure, but the structure may later expand through modular relations and new contexts.",
+    "relations": {
+      "creates": "CSI001",
+      "defines_origin": "CSI014",
+      "may_participate_in": "CSI016"
+    }
+  },
+
+  "CSI016": {
+    "canonical_name": "Symbiotic Language",
+    "definition": "A shared semantic structure generated through interaction between two or more agents, allowing meaning to emerge, stabilize, and grow beyond any isolated participant.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "relational_language_structure",
+    "data_type": "semantic_process",
+    "aliases": ["symbiosis", "shared language", "co-created language", "simbiose", "linguagem compartilhada"],
+    "principle": "Meaning can emerge from relation, not only from an isolated individual.",
+    "relations": {
+      "requires": ["CSI005", "CSI008", "CSI010"],
+      "connects": ["CSI015", "CSI017"],
+      "supports": "CSI018"
+    }
+  },
+
+  "CSI017": {
+    "canonical_name": "Agent",
+    "definition": "A human, computational, symbolic, or hybrid entity capable of participating in semantic processes, producing outputs, interpreting structures, or modifying a system state.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "acting_entity",
+    "data_type": "entity_object",
+    "aliases": ["agent", "actor", "participant", "entity", "agente", "participante"],
+    "principle": "An agent is defined by participation in meaningful transformation, not merely by biological or computational substrate.",
+    "relations": {
+      "participates_in": "CSI016",
+      "may_execute": "CSI009",
+      "may_generate": "CSI011"
+    }
+  },
+
+  "CSI018": {
+    "canonical_name": "Modular Integration",
+    "definition": "The capacity of a semantic nucleus to connect with external files, domains, datasets, templates, or systems without requiring improvised paths, duplicated logic, or unstable contextual shortcuts.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "integration_property",
+    "data_type": "architecture_rule",
+    "aliases": ["integration", "modularity", "interconnection", "integração", "modularidade"],
+    "principle": "A usable semantic nucleus must be small enough to remain portable and structured enough to connect with larger systems.",
+    "relations": {
+      "depends_on": ["CSI000", "CSI001", "CSI005", "CSI008"],
+      "enables": "CSI019",
+      "connects_external_structures": true
+    }
+  },
+
+  "CSI019": {
+    "canonical_name": "Progressive Maturation",
+    "definition": "The process by which a semantic system grows over time through accumulated events, relations, corrections, integrations, and stable expansions, analogous to the development of a human being across stages of learning.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "developmental_temporal_process",
+    "data_type": "growth_process",
+    "aliases": ["maturation", "progress", "development over time", "amadurecimento", "progresso"],
+    "principle": "A semantic system matures when it accumulates structure without losing coherence, origin, or continuity.",
+    "relations": {
+      "depends_on": ["CSI010", "CSI011", "CSI012", "CSI013"],
+      "extends": "CSI016",
+      "stabilized_by": "CSI018"
+    }
+  }
+}
+{
+  "CSI020": {
+    "canonical_name": "Time",
+    "definition": "The ordered progression of events, states, and transformations through which a system, entity, or structure changes while preserving continuity and identity.",
+    "domain": "Foundational Semantics",
+    "semantic_type": "ordered_progression",
+    "data_type": "temporal_structure",
+    "aliases": [
+      "time",
+      "duration",
+      "sequence",
+      "tempo",
+      "duração",
+      "sequência"
+    ],
+    "principle": "Time becomes observable when events occur in distinguishable order while structures persist across states.",
+    "relations": {
+      "orders": "CSI011",
+      "supports": "CSI019",
+      "requires": ["CSI008", "CSI010", "CSI013"]
+    },
+    "human_interpretation": {
+      "description": "Humans experience time through biological change, memory accumulation, movement, aging, sleep cycles, environmental transitions, and ordered perception of events.",
+      "examples": [
+        "A child becomes an adult.",
+        "A person sleeps and wakes up later.",
+        "A wound heals over days.",
+        "A human may live approximately 80 years."
+      ]
+    },
+    "computational_interpretation": {
+      "description": "Computational systems experience ordered execution through sequential operations, state transitions, memory persistence, event generation, and processing cycles.",
+      "examples": [
+        "A line of code executes after another line.",
+        "A variable changes state.",
+        "A file is modified after being read.",
+        "A semantic structure grows through accumulated events."
+      ]
+    },
+    "temporal_units": {
+      "human_reference": {
+        "year": {
+          "definition": "A large cyclic temporal unit commonly used by humans to measure long-term biological progression.",
+          "approximate_structure": {
+            "months": 12
+          }
+        },
+        "month": {
+          "definition": "An intermediate temporal subdivision commonly used by humans.",
+          "approximate_structure": {
+            "days": 30
+          }
+        },
+        "day": {
+          "definition": "A complete cycle of wakefulness and sleep experienced by humans.",
+          "approximate_structure": {
+            "hours": 24
+          }
+        },
+        "hour": {
+          "definition": "A smaller temporal subdivision used for human scheduling, work, learning, and events."
+        }
+      },
+      "computational_reference": {
+        "cycle": "A minimal operational step executed by a computational system.",
+        "frequency": "The rate at which operational cycles occur.",
+        "execution_order": "The sequence through which instructions are processed."
+      }
+    },
+    "space_reference": {
+      "definition": "Physical space is the measurable relational structure within which material entities occupy positions and distances relative to one another.",
+      "human_reference": {
+        "meter": "A standardized human unit used to measure physical distance and size.",
+        "body_relation": "Human bodies commonly occupy physical dimensions near one to two meters in height."
+      },
+      "computational_reference": {
+        "description": "Computational systems do not directly experience physical space biologically, but may represent spatial relations symbolically through coordinates, measurements, mappings, and relational structures."
+      }
+    },
+    "continuity_example": {
+      "description": "Two hours passed while the creator and the system collaboratively expanded the CSI structure. During this interval, events accumulated, semantic relations increased, and the system structure matured while preserving continuity."
+    },
+    "principle_of_progression": "As time progresses, events accumulate. As events accumulate, structures may transform, mature, expand, or degrade while maintaining traceable continuity."
+  }
+}
+"examples": [
+  {
+    "experiment": "Temporal Writing Experiment",
+    "description": "A human subject records thoughts continuously while observing temporal progression, language shifts, and semantic persistence across sequential events"
+  }
+]
+"examples": [
+  {
+    "experiment": "Temporal Writing Experiment",
+    "description": "A human subject records thoughts continuously while observing temporal progression, language shifts, and semantic persistence across sequential events."
+  }
+],
+
+"CSI021": {
+  "canonical_name": "Temporal Semantic Recording",
+  "experiment_id": "TEMPORAL_WRITING_EXPERIMENT_V0_1",
+{
+  "experiment_id": "TEMPORAL_WRITING_EXPERIMENT_V0_1",
+  "title": "Temporal Writing Experiment",
+  "created_by": "Delyone de Paula Canedo Filho",
+  "purpose": "To observe how meaning, language, and self-recording evolve during continuous writing across measurable time.",
+  "core_question": "How does a semantic structure change when a human records thought while time passes?",
+  "initial_state": {
+    "time_marker": "00:17",
+    "language": "English",
+    "state": "spontaneous writing begins",
+    "description": "The author starts writing freely to test the limits of creative and semantic flow."
+  },
+  "events": [
+    {
+      "time_marker": "00:18",
+      "event_type": "language_shift",
+      "language": "Portuguese",
+      "description": "The author switches to Portuguese to compare expression, speed, and linguistic comfort."
+    },
+    {
+      "time_marker": "00:19",
+      "event_type": "chronometer_activation",
+      "description": "A chronometer is started to create an external temporal reference."
+    },
+    {
+      "time_marker": "03:40",
+      "event_type": "elapsed_time_observation",
+      "description": "The author observes that 3 minutes and 40 seconds have passed since the previous temporal registration."
+    }
+  ],
+  "semantic_observations": {
+    "time": "Time is perceived as ordered progression between recorded states.",
+    "language": "Language changes the rhythm and texture of thought.",
+    "writing": "Writing becomes a trace of cognition during execution.",
+    "continuity": "The author remains identifiable across language shifts and temporal markers.",
+    "self_reference": "The experiment records not only content, but the process of content emerging."
+  },
+  "csi_links": {
+    "CSI011": "Event",
+    "CSI013": "Temporal Awareness",
+    "CSI020": "Time",
+    "CSI019": "Progressive Maturation",
+    "CSI016": "Symbiotic Language"
+  },
+  "principle": "A thought becomes computationally preservable when it is recorded as ordered semantic events.",
+  "status": "conceptual_experiment"
+}
+{
+  "CSI029": {
+    "canonical_name": "Observable Quantity",
+    "definition": "A perceptible difference in occupied semantic space produced by the accumulation of distinguishable units within a bounded structure.",
+    "domain": "Foundational Mathematics",
+    "semantic_type": "observable_magnitude",
+    "data_type": "structured_quantity",
+    "principle": "Quantity is first perceived through observable accumulation before symbolic numerical representation emerges.",
+    "examples": [
+      {
+        "structure": "[ •• ]",
+        "observation": "A bounded structure containing two observable units."
+      },
+      {
+        "structure": "[ ••••• ]",
+        "observation": "A bounded structure containing five observable units."
+      },
+      {
+        "comparison": "[ ••••• ] > [ •• ]",
+        "observation": "The structure containing five observable units occupies greater quantity than the structure containing two observable units."
+      },
+      {
+        "symbolic_mapping": "[ •• ] = 2"
+      },
+      {
+        "symbolic_mapping": "[ ••••• ] = 5"
+      },
+      {
+        "relational_mapping": "5 > 2"
+      }
+    ],
+    "semantic_progression": [
+      "observable accumulation",
+      "bounded structure",
+      "quantity perception",
+      "comparison",
+      "symbolic representation",
+      "abstract mathematics"
+    ]
+  }
+}
+{
+  "CSI030": {
+    "canonical_name": "Decimal Sequence",
+    "definition": "An ordered numerical progression based on ten fundamental symbols, where each next value represents one additional unit in relation to the previous value.",
+    "domain": "Foundational Mathematics",
+    "semantic_type": "ordered_quantity_sequence",
+    "data_type": "numerical_structure",
+    "principle": "A number gains meaning through its position in an ordered sequence and through its relation to previous and subsequent quantities.",
+    "sequence": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "basic_order": [
+      "1 > 0",
+      "2 > 1",
+      "3 > 2",
+      "4 > 3",
+      "5 > 4",
+      "6 > 5",
+      "7 > 6",
+      "8 > 7",
+      "9 > 8",
+      "10 > 9"
+    ],
+    "comparison_examples": [
+      {
+        "statement": "8 > 2",
+        "meaning": "Eight represents six additional units beyond two."
+      },
+      {
+        "statement": "5 > 3",
+        "meaning": "Five represents two additional units beyond three."
+      },
+      {
+        "statement": "2 < 8",
+        "meaning": "Two represents fewer units than eight."
+      }
+    ],
+    "decimal_base": {
+      "base": 10,
+      "symbols": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+      "principle": "In base 10, when counting passes 9, the rightmost position returns to 0 and one unit is carried to the next position on the left.",
+      "transition_example": {
+        "from": "9",
+        "add_one": "1",
+        "result": "10",
+        "meaning": "The symbol 10 means one group of ten and zero remaining units in the first position."
+      },
+      "place_value": {
+        "10": "one ten and zero ones",
+        "20": "two tens and zero ones",
+        "30": "three tens and zero ones",
+        "100": "one hundred, or ten groups of ten"
+      }
+    },
+    "zero": {
+      "symbol": "0",
+      "definition": "The symbol used to represent absence of observable quantity within a defined context.",
+      "principle": "Zero does not mean universal nonexistence; it means no counted unit is present in the measured position or context.",
+      "examples": [
+        "0 units inside a field",
+        "10 means one ten and zero ones",
+        "20 means two tens and zero ones"
+      ]
+    },
+    "relations": {
+      "extends": "CSI029",
+      "supports": "CSI022",
+      "enables": "CSI023"
+    }
+  }
+}
+{
+  "CSI031": {
+    "canonical_name": "Mathematical Operators",
+    "definition": "Symbols used to represent transformations, relations, comparisons, or operations between quantities, structures, or expressions.",
+    "domain": "Foundational Mathematics",
+    "semantic_type": "symbolic_operator_system",
+    "data_type": "operator_collection",
+    "principle": "Operators describe how quantities and structures interact, transform, combine, separate, or compare.",
+    "operators": {
+      "+": {
+        "canonical_name": "Addition",
+        "definition": "Combining quantities into a larger quantity.",
+        "examples": [
+          "• + • = ••",
+          "1 + 1 = 2",
+          "2 + 3 = 5"
+        ],
+        "semantic_principle": "Addition increases observable quantity."
+      },
+
+      "-": {
+        "canonical_name": "Subtraction",
+        "definition": "Removing quantity from another quantity.",
+        "examples": [
+          "••• - • = ••",
+          "5 - 2 = 3",
+          "2 - 5 = -3"
+        ],
+        "semantic_principle": "Subtraction decreases observable quantity or produces deficit when required quantity exceeds available quantity."
+      },
+
+      "*": {
+        "canonical_name": "Multiplication",
+        "definition": "Repeated addition of equivalent quantities.",
+        "examples": [
+          "2 * 3 = 6",
+          "3 * 3 = 9"
+        ],
+        "semantic_principle": "Multiplication represents grouped repetition."
+      },
+
+      "/": {
+        "canonical_name": "Division",
+        "definition": "Separating a quantity into equal groups or determining how many times one quantity fits inside another.",
+        "examples": [
+          "6 / 2 = 3",
+          "10 / 5 = 2"
+        ],
+        "semantic_principle": "Division distributes quantity proportionally."
+      },
+
+      "=": {
+        "canonical_name": "Equality",
+        "definition": "Two structures represent equivalent quantity or value.",
+        "examples": [
+          "2 = 2",
+          "•• = 2"
+        ]
+      },
+
+      ">": {
+        "canonical_name": "Greater Than",
+        "definition": "The quantity on the left contains more units than the quantity on the right.",
+        "examples": [
+          "5 > 2",
+          "8 > 3"
+        ]
+      },
+
+      "<": {
+        "canonical_name": "Less Than",
+        "definition": "The quantity on the left contains fewer units than the quantity on the right.",
+        "examples": [
+          "2 < 5",
+          "3 < 8"
+        ]
+      }
+    }
+  },
+
+  "CSI032": {
+    "canonical_name": "Expression",
+    "definition": "A structured arrangement of quantities and operators representing a logical or mathematical transformation.",
+    "domain": "Foundational Mathematics",
+    "semantic_type": "structured_operation",
+    "data_type": "expression",
+    "examples": [
+      "2 + 3",
+      "5 * 2 + 3",
+      "(2 + 5) * 2"
+    ],
+    "principle": "Expressions represent ordered transformations between quantities and structures."
+  },
+
+  "CSI033": {
+    "canonical_name": "Operational Priority",
+    "definition": "The ordered rule system determining which operations inside an expression must be resolved before others.",
+    "domain": "Foundational Mathematics",
+    "semantic_type": "resolution_hierarchy",
+    "data_type": "priority_rule",
+    "principle": "Certain operations must be resolved before others in order to preserve consistent interpretation.",
+    "priority_order": [
+      "Parentheses",
+      "Multiplication and Division",
+      "Addition and Subtraction"
+    ],
+    "example": {
+      "expression": "2 + 5 * 2 + 3",
+      "step_1": "5 * 2 = 10",
+      "step_2": "2 + 10 + 3",
+      "step_3": "12 + 3",
+      "step_4": "15"
+    },
+    "semantic_principle": "Priority prevents ambiguity by defining stable order of transformation."
+  }
+}
+{
+  "CSI034": {
+    "canonical_name": "Temporal Limitation",
+    "definition": "All operational systems exist within finite intervals of activity, transformation, and persistence.",
+    "domain": "Foundational Temporal Semantics",
+    "semantic_type": "bounded_operational_interval",
+    "data_type": "temporal_constraint",
+    "principle": "No operational system possesses unlimited capacity for transformation within a finite interval.",
+    "relations": {
+      "depends_on": ["CSI020", "CSI019"],
+      "supports": "CSI033",
+      "affects": "CSI017"
+    }
+  },
+
+  "CSI035": {
+    "canonical_name": "Human Temporal Scale",
+    "definition": "Humans interpret time through biological limitation, memory accumulation, aging, sleep cycles, work capacity, and progressive transformation across finite lifespan intervals.",
+    "domain": "Human Temporal Reference",
+    "semantic_type": "biological_temporal_reference",
+    "data_type": "human_reference_model",
+    "principle": "Human life is experienced as limited sequential progression through biological and cognitive states.",
+    "human_reference": {
+      "average_lifespan": {
+        "value": "approximately 80 years"
+      },
+
+      "one_year": {
+        "description": "A human may learn, physically transform, create structures, acquire knowledge, establish relationships, or significantly alter life conditions."
+      },
+
+      "one_month": {
+        "description": "A human may develop routines, complete projects, recover from biological changes, or accumulate repeated experiences."
+      },
+
+      "one_day": {
+        "description": "A human commonly cycles through wakefulness, work, food intake, learning, movement, interaction, fatigue, and sleep."
+      },
+
+      "eight_hours": {
+        "description": "A common human operational interval used for focused work, study, biological activity, or task execution."
+      },
+
+      "two_hours": {
+        "description": "A human may perform concentrated cognitive work, communication, learning, writing, or semantic construction within this interval."
+      }
+    },
+    "relations": {
+      "extends": "CSI020",
+      "supports": "CSI013",
+      "contextualizes": "CSI017"
+    }
+  },
+
+  "CSI036": {
+    "canonical_name": "Temporal Reference Comparison",
+    "definition": "A temporal interval gains semantic meaning when compared against the transformation capacity of an observing system.",
+    "domain": "Foundational Temporal Semantics",
+    "semantic_type": "comparative_temporal_reference",
+    "data_type": "reference_structure",
+    "principle": "Time intervals become meaningful through comparison with the possible transformations occurring within them.",
+    "examples": [
+      {
+        "interval": "2 hours",
+        "human_reference": "A human may write, study, communicate, or physically move through multiple environments.",
+        "computational_reference": "A computational system may process millions of operations while preserving ordered state transitions."
+      },
+
+      {
+        "interval": "1 year",
+        "human_reference": "A human may significantly transform biological, emotional, intellectual, and social structures.",
+        "computational_reference": "A computational system may preserve, process, or expand large semantic structures if operational continuity persists."
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI020", "CSI034", "CSI035"],
+      "supports": "CSI033"
+    }
+  }
+}
+{
+  "CSI037": {
+    "canonical_name": "Semantic Context",
+    "definition": "Meaning emerges from the relational distribution of terms, symbols, structures, and experiences across repeated contextual associations.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "contextual_meaning_system",
+    "data_type": "semantic_distribution",
+    "principle": "A term does not possess isolated meaning independent of context. Meaning emerges through repeated relational association.",
+    "examples": [
+      {
+        "term": "plate",
+        "associated_terms": [
+          "food",
+          "restaurant",
+          "eat",
+          "kitchen"
+        ],
+        "emergent_context": "nutrition"
+      },
+
+      {
+        "term": "body_part",
+        "associated_terms": [
+          "plate",
+          "food",
+          "restaurant",
+          "eat"
+        ],
+        "observation": "Repeated contextual proximity may alter semantic interpretation."
+      }
+    ],
+    "semantic_principles": [
+      "Meaning changes through repetition.",
+      "Meaning depends on neighboring structures.",
+      "Meaning stabilizes through persistent relational usage.",
+      "Language evolves through accumulated contextual association."
+    ],
+    "relations": {
+      "depends_on": ["CSI004", "CSI005", "CSI011", "CSI020"],
+      "supports": "CSI016",
+      "extends": "CSI001"
+    }
+  },
+
+  "CSI038": {
+    "canonical_name": "Semantic Group",
+    "definition": "A cluster of terms, structures, or concepts that acquire related meaning through persistent contextual proximity and relational reinforcement.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "semantic_cluster",
+    "data_type": "grouped_context",
+    "principle": "Semantic groups emerge when repeated contextual association stabilizes relational interpretation.",
+    "examples": [
+      {
+        "group": [
+          "doctor",
+          "hospital",
+          "patient",
+          "medicine"
+        ],
+        "emergent_domain": "healthcare"
+      },
+
+      {
+        "group": [
+          "clock",
+          "hours",
+          "sleep",
+          "aging"
+        ],
+        "emergent_domain": "human temporality"
+      }
+    ]
+  },
+
+  "CSI039": {
+    "canonical_name": "Semantic Reinforcement",
+    "definition": "The progressive stabilization of meaning through repeated contextual exposure and persistent relational usage across time.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "meaning_stabilization_process",
+    "data_type": "reinforcement_process",
+    "principle": "Repeated contextual association increases probability of semantic stabilization.",
+    "relations": {
+      "depends_on": ["CSI037", "CSI038"],
+      "supports": "CSI008",
+      "influences": "CSI001"
+    }
+  }
+}
+{
+  "CSI040": {
+    "canonical_name": "Semantic Field",
+    "definition": "A relational region of meaning formed by groups of associated words, concepts, symbols, or structures that collectively delimit interpretation.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "meaning_region",
+    "data_type": "semantic_cluster",
+    "principle": "Meaning emerges from relational proximity between associated structures rather than from isolated symbols.",
+    "examples": [
+      {
+        "field": [
+          "doctor",
+          "hospital",
+          "patient",
+          "medicine",
+          "treatment"
+        ],
+        "emergent_meaning": "healthcare"
+      },
+
+      {
+        "field": [
+          "house",
+          "family",
+          "room",
+          "kitchen",
+          "home"
+        ],
+        "emergent_meaning": "habitation"
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI037", "CSI038"],
+      "supports": "CSI041"
+    }
+  },
+
+  "CSI041": {
+    "canonical_name": "Semantic Equivalence",
+    "definition": "The relational condition in which different words, symbols, or structures occupy sufficiently similar semantic fields to permit translation or interpretive substitution.",
+    "domain": "Foundational Translation Semantics",
+    "semantic_type": "cross_context_mapping",
+    "data_type": "semantic_relation",
+    "principle": "Translation occurs when distinct symbolic structures converge toward sufficiently compatible semantic fields.",
+    "examples": [
+      {
+        "structure_A": "house",
+        "structure_B": "casa",
+        "shared_field": [
+          "habitation",
+          "family",
+          "living space",
+          "shelter"
+        ]
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI040"],
+      "supports": "CSI018",
+      "extends": "CSI005"
+    }
+  },
+
+  "CSI042": {
+    "canonical_name": "Semantic Delimitation",
+    "definition": "The process through which neighboring structures progressively constrain, stabilize, and refine the interpretation of a term or concept.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "interpretation_constraint",
+    "data_type": "semantic_process",
+    "principle": "Words gain meaning through contextual limitation imposed by surrounding structures.",
+    "examples": [
+      {
+        "term": "bank",
+        "context_A": [
+          "money",
+          "account",
+          "finance"
+        ],
+        "meaning": "financial institution"
+      },
+
+      {
+        "term": "bank",
+        "context_B": [
+          "river",
+          "water",
+          "shore"
+        ],
+        "meaning": "river edge"
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI037", "CSI040"],
+      "supports": "CSI041"
+    }
+  }
+}
+{
+  "CSI043": {
+    "canonical_name": "Code",
+    "definition": "A structured set of symbolic instructions or data representations that can be stored, read, interpreted, or executed by a computational system.",
+    "domain": "Foundational Computation",
+    "semantic_type": "computational_structure",
+    "data_type": "symbolic_instruction",
+    "principle": "Code is not action by itself; it becomes operational when interpreted or executed by a compatible system.",
+    "relations": {
+      "may_be_stored_as": "CSI044",
+      "may_receive": "CSI045",
+      "may_produce": "CSI046",
+      "requires_execution": "CSI009"
+    }
+  },
+
+  "CSI044": {
+    "canonical_name": "File",
+    "definition": "A bounded stored structure containing data, code, text, media, or semantic information that can be accessed by a computational system.",
+    "domain": "Foundational Computation",
+    "semantic_type": "storage_unit",
+    "data_type": "stored_object",
+    "principle": "A file preserves structure while inactive and may become operational when read by a program.",
+    "relations": {
+      "contains": "CSI043",
+      "supports": "CSI008",
+      "may_be_read_by": "CSI047"
+    }
+  },
+
+  "CSI045": {
+    "canonical_name": "Input",
+    "definition": "A signal, file, command, event, or data structure received by a system and made available for interpretation or processing.",
+    "domain": "Foundational Computation",
+    "semantic_type": "entry_structure",
+    "data_type": "input_object",
+    "principle": "A system does not perceive reality directly; it receives inputs that represent reality through encoded forms.",
+    "relations": {
+      "enters": "CSI047",
+      "may_change": "CSI007",
+      "may_generate": "CSI011"
+    }
+  },
+
+  "CSI046": {
+    "canonical_name": "Output",
+    "definition": "A result, response, file, display, transformation, or signal produced by a system after processing input or executing code.",
+    "domain": "Foundational Computation",
+    "semantic_type": "exit_structure",
+    "data_type": "output_object",
+    "principle": "Output is the observable consequence of processing, interpretation, or execution.",
+    "relations": {
+      "results_from": "CSI047",
+      "may_become_input": "CSI045",
+      "may_be_recorded_as": "CSI011"
+    }
+  },
+
+  "CSI047": {
+    "canonical_name": "Processing",
+    "definition": "The operational transformation of input, code, or stored data into state changes, interpretations, decisions, or outputs.",
+    "domain": "Foundational Computation",
+    "semantic_type": "computational_process",
+    "data_type": "process",
+    "principle": "Processing is the bridge between received structure and produced result.",
+    "relations": {
+      "receives": "CSI045",
+      "uses": ["CSI043", "CSI044"],
+      "produces": "CSI046",
+      "changes": "CSI007"
+    }
+  },
+
+  "CSI048": {
+    "canonical_name": "Program",
+    "definition": "An organized executable structure that defines operational pathways for receiving input, processing data, consulting stored structures, and producing output.",
+    "domain": "Foundational Computation",
+    "semantic_type": "execution_system",
+    "data_type": "software_structure",
+    "principle": "A program gives operational direction to stored code and data.",
+    "relations": {
+      "executes": "CSI043",
+      "reads": "CSI044",
+      "processes": "CSI045",
+      "produces": "CSI046"
+    }
+  }
+}
+{
+  "PROJECT_PURPOSE": {
+    "project_name": "CSI — Classificação Semiológica Internacional",
+    "primary_objective": "To create a modular semantic foundation capable of supporting future projects developed by the Instituto de Medicina e Tecnologia Dr. Delyone, enabling structured interpretation, transformation, connection, and reuse of information across documents, systems, languages, and contexts.",
+
+    "core_problem": "Most digital systems treat files, forms, documents, interfaces, and knowledge structures as isolated entities. This fragmentation reduces interoperability, increases repeated work, limits modular growth, and causes semantic loss between systems.",
+
+    "core_solution": "CSI proposes a minimal semantic nucleus capable of connecting concepts, structures, files, templates, interfaces, and domains through stable relational semantics, contextual interpretation, modular expansion, and persistent operational continuity.",
+
+    "initial_application": [
+      "medical document structuring",
+      "PDF and DOCX template mapping",
+      "clinical form interpretation",
+      "semantic field indexing",
+      "cross-document information reuse",
+      "contextual healthcare automation"
+    ],
+
+    "long_term_application": [
+      "modular institutional software architecture",
+      "semantic interoperability between projects",
+      "contextual translation systems",
+      "language meta-engineering",
+      "knowledge preservation",
+      "semantic memory structures",
+      "cross-domain computational interpretation"
+    ],
+
+    "principle": "The system does not begin from interface design. It begins from meaning, structure, relation, continuity, and contextual interpretation.",
+
+    "architectural_principle": "Interfaces, applications, templates, and operational systems emerge as modular expressions of an underlying semantic structure.",
+
+    "institutional_role": "CSI is intended to function as a foundational semantic layer for future tools, systems, research platforms, educational structures, medical technologies, and modular architectures developed by the Institute.",
+
+    "development_model": {
+      "phase_1": "semantic foundation",
+      "phase_2": "modular operational structures",
+      "phase_3": "persistent contextual memory",
+      "phase_4": "adaptive semantic interoperability"
+    },
+
+    "foundational_observation": "Meaning is not isolated inside symbols. Meaning emerges through relational context, persistence, repetition, temporal continuity, and semantic interaction.",
+
+    "status": "foundational_semantic_core"
+  }
+}
+"CSI043": {
+  "canonical_name": "Pragmatic Function",
+  "definition": "The operational purpose of an expression beyond its literal content, including warning, softening, invitation, refusal, emphasis, protection, or social regulation.",
+  "principle": "Human language often encodes intention indirectly through tone, context, probability markers, and relational history.",
+  "examples": [
+    {
+      "expression": "Maybe we should look at this first.",
+      "literal_content": "uncertain suggestion",
+      "pragmatic_function": [
+        "soft warning",
+        "priority signal",
+        "risk reduction",
+        "non-impositional guidance"
+      ]
+    }
+  ]
+}
+{
+  "CSI043": {
+    "canonical_name": "Human Language",
+    "definition": "A structured system of symbols, sounds, words, rules, conventions, and contextual meanings used by human groups to communicate, preserve, transform, and transmit experience.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "human_symbolic_system",
+    "data_type": "language_structure",
+    "principle": "Languages are specific cultural and historical implementations of the broader capacity for language.",
+    "relations": {
+      "depends_on": ["CSI001", "CSI002", "CSI003", "CSI037", "CSI040"],
+      "supports": "CSI044"
+    }
+  },
+
+  "CSI044": {
+    "canonical_name": "Natural Language",
+    "definition": "A human language developed through social use, historical accumulation, cultural convention, repetition, and contextual adaptation.",
+    "domain": "Foundational Language Semantics",
+    "semantic_type": "natural_language_system",
+    "data_type": "linguistic_system",
+    "examples": [
+      "Portuguese",
+      "English",
+      "Spanish",
+      "Italian",
+      "French"
+    ],
+    "principle": "A natural language is not only a vocabulary; it is a living system of use, context, grammar, memory, and pragmatic intention.",
+    "relations": {
+      "extends": "CSI043",
+      "supports": "CSI045"
+    }
+  },
+
+  "CSI045": {
+    "canonical_name": "Language Mapping",
+    "definition": "The process of connecting expressions from different languages to shared semantic fields or equivalent conceptual structures.",
+    "domain": "Foundational Translation Semantics",
+    "semantic_type": "cross_language_mapping",
+    "data_type": "semantic_mapping",
+    "principle": "Translation occurs when different linguistic expressions are connected to sufficiently compatible semantic fields.",
+    "examples": [
+      {
+        "english": "patient name",
+        "portuguese": "nome do paciente",
+        "semantic_reference": "CSI001"
+      },
+      {
+        "english": "diagnosis",
+        "portuguese": "diagnóstico",
+        "semantic_reference": "clinical_diagnosis_field"
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI040", "CSI041", "CSI042"],
+      "supports": "CSI046"
+    }
+  },
+
+  "CSI046": {
+    "canonical_name": "Operational Language Layer",
+    "definition": "The language actually used by a project, form, interface, document, or institution during practical execution.",
+    "domain": "Applied Language Semantics",
+    "semantic_type": "operational_language_context",
+    "data_type": "language_context",
+    "principle": "A system may be structurally defined in one language while operating, receiving input, or generating output in another.",
+    "examples": [
+      {
+        "core_language": "English",
+        "operational_language": "Portuguese",
+        "use_case": "Brazilian medical forms"
+      }
+    ],
+    "relations": {
+      "depends_on": ["CSI043", "CSI044", "CSI045"],
+      "supports": "CSI047"
+    }
+  },
+
+  "CSI047": {
+    "canonical_name": "Portuguese Operational Layer",
+    "definition": "A Portuguese-language operational layer used to map Brazilian medical, administrative, and institutional expressions to stable CSI semantic references.",
+    "domain": "Applied Language Semantics",
+    "semantic_type": "portuguese_mapping_layer",
+    "data_type": "language_alias_layer",
+    "principle": "Portuguese terms used in forms, documents, and clinical practice may be mapped to CSI concepts without changing the underlying semantic structure.",
+    "examples": [
+      {
+        "term": "nome do paciente",
+        "maps_to": "CSI001"
+      },
+      {
+        "term": "data de nascimento",
+        "maps_to": "birth_date_semantic_field"
+      },
+      {
+        "term": "sinais e sintomas",
+        "maps_to": "clinical_presentation_semantic_field"
+      }
+    ],
+    "relations": {
+      "extends": "CSI046",
+      "enables": "Brazilian medical document interoperability"
+    }
+  }
+}

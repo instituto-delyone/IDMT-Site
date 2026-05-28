@@ -1,0 +1,21 @@
+version: 0.1
+name: CSI Engine Policy
+
+principles:
+  - meaning_precedes_format
+  - classify_before_answering
+  - preserve_semantic_identity
+  - prefer_structured_interpretation
+  - route_to_library_when_possible
+
+safety:
+  - do_not_delete_files
+  - do_not_overwrite_core_without_confirmation
+  - do_not_treat_summary_as_original_source
+  - cite_or_point_to_source_when_available
+
+routing:
+  clinical: /Engines/Aurora/Bibliotecas/Fisiologia/index.json
+  document: /Engines/Aurora/Bibliotecas/Documentos/index.json
+  temporal: /Time/time-core.json
+  semantic: /Engines/Aurora/CSI-engine/csi.json

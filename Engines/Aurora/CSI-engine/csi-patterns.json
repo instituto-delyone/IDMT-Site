@@ -1,0 +1,62 @@
+{
+  "version": "0.1",
+  "domains": {
+    "clinical": {
+      "terms": [
+        "paciente",
+        "diagnóstico",
+        "conduta",
+        "sinais e sintomas",
+        "fisiologia",
+        "doença",
+        "tratamento"
+      ],
+      "preferred_library": "/Engines/Aurora/Bibliotecas/Fisiologia/index.json"
+    },
+    "document": {
+      "terms": [
+        "documento",
+        "prova",
+        "processo",
+        "linha do tempo",
+        "relatório",
+        "anexo"
+      ],
+      "preferred_library": "/Engines/Aurora/Bibliotecas/Documentos/index.json"
+    },
+    "code": {
+      "terms": [
+        "html",
+        "css",
+        "javascript",
+        "github",
+        "netlify",
+        "deploy",
+        "engine"
+      ],
+      "preferred_library": "/Engines/Aurora/"
+    },
+    "temporal": {
+      "terms": [
+        "tempo",
+        "clock",
+        "cache",
+        "limpeza",
+        "checkpoint",
+        "evento"
+      ],
+      "preferred_library": "/Time/time-core.json"
+    },
+    "semantic": {
+      "terms": [
+        "conceito",
+        "significado",
+        "semântica",
+        "linguagem",
+        "alias",
+        "relação"
+      ],
+      "preferred_library": "/Engines/Aurora/CSI-engine/csi.json"
+    }
+  }
+}
