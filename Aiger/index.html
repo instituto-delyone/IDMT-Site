@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGAR • Extensão Espelhada de Raciocínio</title>
+
+<style>
+:root{
+  --bg:#060816;
+  --panel:#0f172a;
+  --line:#1e293b;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --accent:#3b82f6;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:radial-gradient(circle at top,#10192f 0%,#060816 70%);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  min-height:100vh;
+}
+
+.wrapper{
+  width:min(980px,92%);
+  margin:auto;
+  padding:40px 0;
+}
+
+.hero{
+  border:1px solid var(--line);
+  background:rgba(15,23,42,.75);
+  backdrop-filter:blur(18px);
+  border-radius:28px;
+  padding:32px;
+  margin-bottom:24px;
+}
+
+h1{
+  margin:0 0 12px;
+  font-size:clamp(2rem,5vw,4rem);
+}
+
+.subtitle{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:20px;
+  background:rgba(15,23,42,.55);
+}
+
+.card h2{
+  margin-top:0;
+}
+
+.portal{
+  margin-top:28px;
+  border:1px solid rgba(59,130,246,.35);
+  background:rgba(59,130,246,.08);
+}
+
+.console{
+  margin-top:18px;
+  border-radius:16px;
+  padding:16px;
+  background:#020617;
+  border:1px solid #111827;
+  font-family:monospace;
+  white-space:pre-wrap;
+  color:#93c5fd;
+}
+
+.button{
+  display:inline-block;
+  margin-top:16px;
+  padding:14px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#2563eb,#60a5fa);
+  color:white;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<section class="hero">
+<h1>AIGAR</h1>
+
+<p class="subtitle">
+Portal operacional da arquitetura Aurora.
+Integra CSI-engine, Library-router, TIME-engine e AIGAR-engine
+como uma estrutura de extensão espelhada de raciocínio.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h2>CSI-engine</h2>
+<p>Interpretação linguística, contexto semântico e reconstrução lógica.</p>
+</div>
+
+<div class="card">
+<h2>Library-router</h2>
+<p>Roteamento automático entre bibliotecas, chunks e arquivos de memória.</p>
+</div>
+
+<div class="card">
+<h2>TIME-engine</h2>
+<p>Persistência temporal, ciclos de limpeza e sincronização estrutural.</p>
+</div>
+
+<div class="card">
+<h2>VISUAL-engine</h2>
+<p>Camada visual, feedback contextual e leitura organizacional.</p>
+</div>
+
+</div>
+
+<div class="card portal">
+<h2>Estado do núcleo</h2>
+
+<div id="console" class="console">
+Inicializando AIGAR...
+Carregando engines...
+Sincronizando bibliotecas...
+</div>
+
+<a class="button" href="/Engines/Aurora/">Abrir arquitetura Aurora</a>
+</div>
+</section>
+
+</div>
+
+<script src="/Engines/Aurora/CSI-engine/csi-core.js"></script>
+<script src="/Engines/Aurora/Library-router/library-router.js"></script>
+<script src="/Engines/Aurora/TIME-engine/time-engine.js"></script>
+<script src="/Engines/Aurora/AIGAR-engine/aigar-core.js"></script>
+
+<script>
+const consoleBox = document.getElementById("console");
+
+setTimeout(()=>{
+  consoleBox.innerHTML += "\nCSI-engine online.";
+},700);
+
+setTimeout(()=>{
+  consoleBox.innerHTML += "\nLibrary-router sincronizado.";
+},1200);
+
+setTimeout(()=>{
+  consoleBox.innerHTML += "\nTIME-engine ativo.";
+},1700);
+
+setTimeout(()=>{
+  consoleBox.innerHTML += "\nAIGAR pronto.";
+},2400);
+</script>
+
+</body>
+</html>
