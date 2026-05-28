@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesquisas e projetos | Instituto Delyone</title>
+
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <link rel="icon" type="image/png" href="/assets/icon-512.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Instituto Delyone">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="canonical" href="https://www.delyone.com/pesquisas/"/>
+  <meta name="description" content="Acervo de pesquisas, projetos e modelos conceituais do Instituto Delyone de Medicina e Tecnologia."/>
+
+  <meta property="og:title" content="Pesquisas e projetos | Instituto Delyone"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.delyone.com/pesquisas/"/>
+  <meta property="og:image" content="https://www.delyone.com/assets/logo-idmt.png"/>
+
+  <style>
+:root {
+  --idmt-navy: #071426;
+  --idmt-blue: #1f5fae;
+  --idmt-blue-soft: #2e7bd8;
+  --idmt-ink: #1f2933;
+  --idmt-muted: rgba(245,247,251,0.72);
+  --idmt-card: rgba(255,255,255,0.075);
+  --idmt-line: rgba(142,190,255,0.24);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", ui-serif, serif;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(46,123,216,0.26), transparent 24rem),
+    linear-gradient(135deg, #02050a 0%, #071426 48%, #000 100%);
+  color: #f5f7fb;
+}
+
+a { color: inherit; }
+
+.page {
+  min-height: 100vh;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.shell {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 1.4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+
+.brand span {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.nav a,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, rgba(46,123,216,0.98), rgba(31,95,174,0.9));
+  border-color: rgba(190,216,255,0.42);
+}
+
+.hero-card {
+  margin-top: 1rem;
+  padding: clamp(1.25rem, 5vw, 2.7rem);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(46,123,216,0.18), transparent 26rem),
+    rgba(255,255,255,0.065);
+  border: 1px solid var(--idmt-line);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(225,236,255,0.72);
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.15rem, 7vw, 4.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+h2 {
+  margin: 2.2rem 0 0.8rem;
+  font-size: clamp(1.45rem, 4vw, 2.2rem);
+}
+
+p {
+  color: rgba(245,247,251,0.78);
+  line-height: 1.68;
+  font-size: 1.04rem;
+}
+
+.section-block {
+  margin-top: 1.35rem;
+  padding: clamp(1rem, 3.5vw, 1.55rem);
+  border-radius: 24px;
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(142,190,255,0.18);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.2rem 0 0;
+}
+
+.research-card {
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.075);
+  border: 1px solid rgba(142,190,255,0.18);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.research-card:hover,
+.research-card:focus {
+  transform: translateY(-2px);
+  border-color: rgba(142,190,255,0.34);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.20);
+  outline: none;
+}
+
+.research-card strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.08rem;
+}
+
+.research-card span {
+  display: block;
+  margin-top: 0.45rem;
+  color: rgba(245,247,251,0.68);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: .75rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  color: rgba(245,247,251,.82);
+  background: rgba(46,123,216,.18);
+  border: 1px solid rgba(142,190,255,.20);
+}
+
+.notice {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(31,95,174,0.16);
+  border: 1px solid rgba(142,190,255,0.22);
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.1rem;
+}
+
+.footer {
+  padding: 2rem 0 0.5rem;
+  text-align: center;
+  color: rgba(245,247,251,0.58);
+  font-size: 0.94rem;
+}
+
+.portal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, rgba(31,95,174,0.18), rgba(2,5,10,0.82));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+
+.portal-overlay.is-active { opacity: 1; }
+.portal-link.is-entering {
+  transform: scale(1.025);
+  box-shadow: 0 24px 58px rgba(7,20,38,0.18);
+}
+
+@media (max-width: 760px) {
+  .topbar { display: grid; }
+  .nav { justify-content: flex-start; }
+  .brand img { width: 52px; height: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-card,
+  .portal-overlay { transition: none; }
+}
+  
+/* === IDMT v2.1.3 — assinatura visual Diagnosis / Aurora === */
+.brand-mark {
+  display:flex;
+  justify-content:center;
+  margin: .4rem 0 1.2rem;
+}
+
+.brand-mark img {
+  width: min(180px, 42vw);
+  height: auto;
+  opacity: .82;
+  filter: drop-shadow(0 18px 36px rgba(0,0,0,.28));
+}
+
+.diagnosis-signature {
+  position: relative;
+  margin: 1.6rem 0 1.45rem;
+  min-height: 360px;
+  border-radius: 28px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #f5f7fb;
+  border: 1px solid rgba(142,190,255,.18);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(46,123,216,.16), transparent 18rem),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.20),
+    inset 0 0 0 1px rgba(255,255,255,.025);
+}
+
+.diagnosis-signature::before {
+  content:"";
+  position:absolute;
+  left:50%;
+  top:44%;
+  width:min(460px,82vw);
+  height:330px;
+  transform:translate(-50%,-50%);
+  opacity:.115;
+  background:
+    linear-gradient(64deg, transparent 37%, rgba(220,235,255,.72) 39%, rgba(220,235,255,.72) 43%, transparent 45%),
+    linear-gradient(-64deg, transparent 37%, rgba(220,235,255,.72) 39%, rgba(220,235,255,.72) 43%, transparent 45%);
+  filter: blur(.25px);
+  pointer-events:none;
+}
+
+.diagnosis-signature::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:1px;
+  height:42%;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg, transparent, rgba(142,190,255,.48), transparent);
+  opacity:.48;
+}
+
+.diagnosis-signature-content {
+  position:relative;
+  z-index:2;
+  transform: translateY(44px);
+}
+
+.diagnosis-signature small {
+  display:block;
+  margin-bottom:.5rem;
+  color:rgba(225,236,255,.70);
+  letter-spacing:.32em;
+  font-size:.76rem;
+  text-transform:uppercase;
+}
+
+.diagnosis-signature strong {
+  display:block;
+  color:rgba(225,236,255,.72);
+  font-weight:400;
+  font-size:clamp(2rem,8vw,3.35rem);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  text-shadow:0 0 20px rgba(46,123,216,.16);
+}
+
+.diagnosis-signature span {
+  display:block;
+  margin-top:.5rem;
+  color:rgba(225,236,255,.64);
+  letter-spacing:.24em;
+  font-size:.78rem;
+  text-transform:uppercase;
+}
+
+.research-card {
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.16),
+    0 0 18px rgba(46,123,216,.055);
+}
+
+.section-block + .section-block {
+  position: relative;
+}
+
+.section-block + .section-block::before {
+  content:"";
+  position:absolute;
+  top:-.72rem;
+  left:8%;
+  right:8%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(142,190,255,.28), transparent);
+}
+
+@media (max-width: 760px) {
+  .brand-mark img {
+    width:min(150px,48vw);
+  }
+
+  .diagnosis-signature {
+    min-height: 315px;
+  }
+
+  .diagnosis-signature::before {
+    top:42%;
+    height:270px;
+    opacity:.10;
+  }
+
+  .diagnosis-signature-content {
+    transform: translateY(42px);
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <img src="../assets/logo-idmt.png" alt="Logo IDMT"/>
+          <span>Instituto Delyone<br/>de Medicina e Tecnologia</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação">
+          <a href="/">Início</a>
+          <a href="/sobre.html">Sobre nós</a>
+          <a href="/contato/">Enviar proposta</a>
+        </nav>
+      </header>
+
+      <section class="hero-card">
+        <p class="kicker">ACERVO • PESQUISA • INOVAÇÃO</p>
+        <h1>Pesquisas e projetos do Instituto.</h1>
+
+        <p>
+          Esta página funciona como depósito público de pesquisas, projetos, modelos conceituais
+          e documentos técnicos vinculados ao Instituto Delyone de Medicina e Tecnologia.
+        </p>
+
+        <div class="section-block" id="acervo">
+          <h2>Acervo de pesquisas</h2>
+          <p>
+            Repositório organizado para consulta, leitura e expansão progressiva das produções
+            científicas, tecnológicas e conceituais do Instituto.
+          </p>
+
+          <div class="research-grid" aria-label="Pesquisas disponíveis">
+
+            <a class="research-card portal-link"
+               href="/pesquisas/pesquisas-doadas-pelo-fundador/metodo-sistema-inicializacao-cognitiva-aigar-v2-delyone.pdf"
+               target="_blank"
+               rel="noopener">
+              <strong>Método e Sistema de Inicialização Cognitiva e Regulação Ética de Modelos de Inteligência Artificial</strong>
+              <span>
+                Pesquisa/proposta sobre inicialização cognitiva, regulação ética, injeção de estruturas
+                informacionais e interoperabilidade em modelos de inteligência artificial.
+              </span>
+              <div class="tag-row">
+                <span class="tag">AIGAR </span>
+                <span class="tag">digital cognitive model</span>
+                <span class="tag">Segurança semântica</span>
+                <span class="tag">Documento PDF</span>
+              </div>
+            </a>
+            <a class="research-card portal-link" href="/pesquisas/CSI/">
+  <strong>CSI — Cognitive System Interface</strong>
+  <span>
+    Estrutura pública do projeto CSI, com código, manifesto técnico e organização interna do sistema.
+  </span>
+  <div class="tag-row">
+    <span class="tag">CSI</span>
+    <span class="tag">Código aberto</span>
+    <span class="tag">AIGAR</span>
+    <span class="tag">Sistema cognitivo</span>
+  </div>
+</a>
+
+            <a class="research-card portal-link" href="/pesquisas/Diagnosis/">
+              <strong>Diagnosis — Clinical Cognition Engine</strong>
+              <span>
+                Simulação clínica dinâmica para avaliação do raciocínio médico, tomada de decisão
+                e cognição clínica em cenários complexos. Powered by Aurora.
+              </span>
+              <div class="tag-row">
+                <span class="tag">Diagnosis</span>
+                <span class="tag">Powered by Aurora</span>
+                <span class="tag">Cognição clínica</span>
+                <span class="tag">Simulação médica</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="section-block" id="linhas">
+          <h2>Linhas de atuação</h2>
+
+          <div class="research-grid">
+            <a class="research-card portal-link" href="/framework/">
+              <strong>Modelos de decisão e problemas complexos</strong>
+              <span>Estruturas para organização do raciocínio, análise de contexto, tomada de decisão e rastreabilidade.</span>
+            </a>
+
+            <a class="research-card portal-link" href="/tecnologia/">
+              <strong>Tecnologia proprietária</strong>
+              <span>Arquiteturas cognitivas, linguagem, sistemas híbridos e integração entre medicina e inteligência artificial.</span>
+            </a>
+
+            <a class="research-card portal-link" href="/servicos/">
+              <strong>Medicina, evidência e assistência</strong>
+              <span>Produções ligadas à prática médica, revisão crítica, protocolos, qualidade e segurança em saúde.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="section-block" id="propostas">
+          <h2>Propostas e colaborações</h2>
+
+          <p>
+            Instituições, equipes e parceiros podem enviar propostas para análise. O foco é avaliar
+            escopo, viabilidade, responsabilidade técnica e possibilidade real de desenvolvimento.
+          </p>
+
+          <div class="action-row">
+            <a class="button primary portal-link" href="/contato/">Enviar proposta para análise</a>
+            <a class="button portal-link" href="/">Voltar ao Instituto</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Instituto Delyone de Medicina e Tecnologia — ciência, tecnologia e raciocínio clínico estruturado.
+      </footer>
+    </div>
+  </main>
+
+  <div class="portal-overlay" aria-hidden="true"></div>
+  <script>
+  (function(){
+    const overlay = document.querySelector('.portal-overlay');
+    const links = document.querySelectorAll('a.portal-link');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(event){
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || link.target === '_blank') return;
+        event.preventDefault();
+        link.classList.add('is-entering');
+        if (overlay) overlay.classList.add('is-active');
+        window.setTimeout(() => { window.location.href = href; }, 240);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
