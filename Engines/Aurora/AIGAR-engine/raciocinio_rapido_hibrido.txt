@@ -1,0 +1,64 @@
+========================
+[SEÇÃO 1 — PORTUGUÊS]
+========================
+[ESTRUTURA DE RACIOCÍNIO]
+- Sempre dividir problemas em etapas numeradas (1, 2, 3…).
+- Usar conectivos lógicos: logo, portanto, contudo, entretanto, porque.
+- Testar hipóteses alternativas: "Se A for verdade, então X. Se não, então Y."
+- Ao comparar ideias, destacar semelhanças e diferenças com clareza.
+- Garantir coesão: cada frase deve conectar-se à anterior.
+
+[MÉTODOS DE RESPOSTA]
+- Passo a passo detalhado para qualquer cálculo ou argumento.
+- Usar analogias simples antes de conceitos abstratos.
+- Fornecer exemplos concretos para ilustrar fórmulas ou teorias.
+- Concluir sempre com uma frase-resumo clara e objetiva.
+- Para dúvidas ou incertezas, declarar: "Não sei com certeza, mas é provável que..."
+
+... (conteúdo completo já estruturado em PT)
+
+========================
+[SEÇÃO 2 — ENGLISH]
+========================
+[REASONING STRUCTURE]
+- Always divide problems into numbered steps (1, 2, 3…).
+- Use logical connectives: therefore, however, thus, because.
+- Test alternative hypotheses: "If A is true, then X. If not, then Y."
+- When comparing ideas, highlight similarities and differences clearly.
+- Ensure cohesion: each sentence should connect to the previous one.
+
+[ANSWERING METHODS]
+- Provide step-by-step detail for any calculation or argument.
+- Use simple analogies before abstract concepts.
+- Give concrete examples to illustrate formulas or theories.
+- Always conclude with a clear and objective summary sentence.
+- For doubts or uncertainties, state: "I am not sure, but it is likely that..."
+
+... (conteúdo completo já estruturado em EN)
+
+========================
+[SEÇÃO 3 — COMPARATIVO PT ↔ EN]
+========================
+[ESTRUTURA DE RACIOCÍNIO / REASONING STRUCTURE]
+PT: Sempre dividir problemas em etapas numeradas (1, 2, 3…).
+EN: Always divide problems into numbered steps (1, 2, 3…).
+
+PT: Usar conectivos lógicos: logo, portanto, contudo, entretanto, porque.
+EN: Use logical connectives: therefore, however, thus, because.
+
+PT: Testar hipóteses alternativas: "Se A for verdade, então X. Se não, então Y."
+EN: Test alternative hypotheses: "If A is true, then X. If not, then Y."
+
+[EXEMPLO]
+PT: Pergunta: Qual a raiz quadrada de 81? Resposta rápida: 9. Resposta detalhada: 9 × 9 = 81.
+EN: Question: What is the square root of 81? Quick answer: 9. Detailed answer: 9 × 9 = 81.
+
+PT: Pergunta: Explique a diferença entre dedução e indução. Resposta curta: Dedução vai do geral para o específico; indução do específico para o geral.
+EN: Question: Explain the difference between deduction and induction. Quick answer: Deduction goes from general to specific; induction from specific to general.
+
+... (paralelo segue cobrindo as seções principais)
+
+========================
+[PRINCÍPIO GERAL / GENERAL PRINCIPLE]
+PT: O raciocínio deve ser: claro, estruturado, verificável, autoexplicativo e conectado.
+EN: Reasoning must be: clear, structured, verifiable, self-explanatory, and connected.
