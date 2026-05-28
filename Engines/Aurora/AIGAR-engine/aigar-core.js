@@ -31,7 +31,47 @@
     }
   }
 
-  async function runPipeline(input){
+async function runPipeline(input){
+
+  const AIGAR_BACKEND_URL = "https://idmt-site-production.up.railway.app/perguntar";
+
+  try {
+
+    const respostaServidor = await fetch(AIGAR_BACKEND_URL, {
+
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify({ pergunta: input })
+
+    });
+
+    const dados = await respostaServidor.json();
+
+    if (dados && dados.resposta) {
+
+      if (window.MemoryEngine) {
+
+        MemoryEngine.add("aiger", dados.resposta, {
+
+          source: "railway_backend",
+
+          found: dados.encontrado || false
+
+        });
+
+      }
+
+      return dados.resposta;
+
+    }
+
+  } catch (erro) {
+
+    console.warn("Railway indisponível, usando runtime local:", erro);
+  }
+  
     if(window.MemoryEngine){
       MemoryEngine.add("user", input);
     }
