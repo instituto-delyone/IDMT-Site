@@ -53,7 +53,7 @@ async function runPipeline(input){
 
       if (window.MemoryEngine) {
 
-        MemoryEngine.add("aiger", dados.resposta, {
+        MemoryEngine.add("aigar", dados.resposta, {
 
           source: "railway_backend",
 
@@ -95,7 +95,7 @@ async function runPipeline(input){
       : {understood:false, response:"Reasoning-engine não carregada."};
 
     if(window.MemoryEngine){
-      MemoryEngine.add("aiger", result.response, {
+      MemoryEngine.add("aigar", result.response, {
         understood: result.understood,
         latent: result.latent || null,
         domain: packet.intent_domain || "general"
@@ -110,8 +110,8 @@ async function runPipeline(input){
   }
 
   function bindPortal(){
-    const form = document.getElementById("aiger-form");
-    const input = document.getElementById("aiger-input");
+    const form = document.getElementById("aigar-form");
+    const input = document.getElementById("aigar-input");
     const button = document.getElementById("send-button");
     const saveButton = document.getElementById("save-log-button");
     const exportButton = document.getElementById("export-log-button");
@@ -131,10 +131,10 @@ async function runPipeline(input){
           button.textContent = "Raciocinando";
         }
 
-        appendMessage("aiger processing", "AIGER", "Interpretando input → consultando memória → refinando significado → formulando pergunta latente → raciocinando...");
+        appendMessage("aigar processing", "AIGAR", "Interpretando input → consultando memória → refinando significado → formulando pergunta latente → raciocinando...");
 
         const response = await runPipeline(text);
-        appendMessage("aiger", "AIGER", response);
+        appendMessage("aigar", "AIGAR", response);
 
         updateRAMView();
 
@@ -148,11 +148,11 @@ async function runPipeline(input){
     if(saveButton){
       saveButton.addEventListener("click", function(){
         if(!window.LogEngine){
-          appendMessage("aiger", "AIGER", "Log-engine não está carregada.");
+          appendMessage("aigar", "AIGAR", "Log-engine não está carregada.");
           return;
         }
         const saved = LogEngine.saveCurrentSession();
-        appendMessage("aiger", "AIGER", "Raciocínio salvo manualmente em log local: " + saved.id);
+        appendMessage("aigar", "AIGAR", "Raciocínio salvo manualmente em log local: " + saved.id);
         updateRAMView();
       });
     }
