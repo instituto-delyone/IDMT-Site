@@ -1,0 +1,38 @@
+{
+  "id": "biblioteca_linguagem_materna",
+  "version": "0.1",
+  "canonical_name": "Linguagem materna",
+  "role": "base_language_library",
+  "purpose": "Fornecer ao AIGAR uma base inicial de interpretação, comunicação, intenção, profundidade e incerteza.",
+  "load_priority": 1,
+  "read_before_thematic_libraries": true,
+  "files": [
+    {
+      "file": "00_texto_mae.md",
+      "role": "semantic_mother_text",
+      "use": "Ler como orientação primária de linguagem."
+    },
+    {
+      "file": "01_intencoes_humanas.md",
+      "role": "intent_examples",
+      "use": "Classificar função da entrada."
+    },
+    {
+      "file": "02_profundidade_resposta.md",
+      "role": "depth_control",
+      "use": "Regular brevidade, simplicidade e profundidade."
+    },
+    {
+      "file": "03_ambiguidade_incerteza.md",
+      "role": "uncertainty_policy",
+      "use": "Responder quando a entrada for ambígua ou incompleta."
+    },
+    {
+      "file": "04_area_de_insercao.md",
+      "role": "user_insert_zone",
+      "use": "Local seguro para Delyone inserir novos textos de curadoria."
+    }
+  ],
+  "insertion_rule": "Textos novos devem ser inseridos preferencialmente em 04_area_de_insercao.md entre os marcadores <<<INICIO_INSERCAO>>> e <<<FIM_INSERCAO>>>.",
+  "safety": "Esta biblioteca orienta interpretação e comunicação. Não deve substituir fontes técnicas quando a pergunta exigir conhecimento factual especializado."
+}
