@@ -1,31 +1,31 @@
-Hemoglobina.md
+# Hemoglobina
 
-[DOMINIO]
-Medicina
+[METADADOS]
 
-[SUBDOMINIO]
-Hematologia
+dominio: Medicina
+subdominio: Hematologia
+tipo: Conceito Base
+profundidade: Fundamental
+prioridade: Alta
 
-[TIPO]
-Conceito Base
+palavras_chave:
+- hemoglobina
+- hemácia
+- oxigênio
+- ferro
+- anemia
 
-[FINALIDADE]
-Explicar o que é hemoglobina, sua composição, função e importância clínica.
+perguntas_relacionadas:
+- O que é hemoglobina?
+- Qual a função da hemoglobina?
+- Como a hemoglobina transporta oxigênio?
+- Quais doenças afetam a hemoglobina?
 
-[PALAVRAS-CHAVE]
-hemoglobina
-hemácia
-eritrócito
-oxigênio
-ferro
-grupo heme
-anemia
-hematologia
+[/METADADOS]
 
-[RESUMO]
-Hemoglobina é uma proteína presente nas hemácias responsável principalmente pelo transporte de oxigênio.
+# Texto Principal
 
----
+...
 
 # Texto Principal
 
