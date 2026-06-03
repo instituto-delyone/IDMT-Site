@@ -1,0 +1,531 @@
+{
+  "app": {
+    "name": "Delyone Research 2",
+    "version": "0.1.0",
+    "description": "Sistema autoral para estruturar pesquisas, revisões PRISMA e artigos científicos.",
+    "author": "Delyone de Paula Canedo Filho"
+  },
+  "document": {
+    "id": "research_protocol_template_v1",
+    "language": "pt-BR",
+    "status_options": [
+      "Rascunho",
+      "Registrado",
+      "Em revisão",
+      "Submetido",
+      "Publicado"
+    ],
+    "research_type": {
+      "label": "TIPO DE PESQUISA",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Revisão Sistemática",
+        "Revisão Integrativa",
+        "Scoping Review",
+        "Overview",
+        "Meta-análise",
+        "Framework Teórico",
+        "Hypothesis Paper",
+        "White Paper",
+        "Artigo Original",
+        "TCC",
+        "Dissertação",
+        "Tese"
+      ],
+      "value": "[PLACEHOLDER]"
+    }
+  },
+  "front_matter": {
+    "institution": {
+      "label": "INSTITUIÇÃO",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "UNIVERSIDADE FEDERAL DO TOCANTINS"
+    },
+    "campus": {
+      "label": "CAMPUS",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "CAMPUS UNIVERSITÁRIO DE PALMAS"
+    },
+    "department": {
+      "label": "DEPARTAMENTO",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "CURSO DE MEDICINA"
+    },
+    "author": {
+      "label": "SEU NOME",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "DELYONE DE PAULA CANEDO FILHO"
+    },
+    "title": {
+      "label": "TÍTULO DA PESQUISA",
+      "type": "textarea",
+      "value": "[PLACEHOLDER]",
+      "example": "O POTENCIAL DO MDMA COMO FERRAMENTA NO TRATAMENTO DO TRANSTORNO DE ESTRESSE PÓS-TRAUMÁTICO"
+    },
+    "subtitle": {
+      "label": "SUBTÍTULO",
+      "type": "textarea",
+      "value": "[PLACEHOLDER]",
+      "example": "UMA REVISÃO INTEGRATIVA"
+    },
+    "city_state": {
+      "label": "CIDADE - ESTADO",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "PALMAS - TO"
+    },
+    "year": {
+      "label": "ANO",
+      "type": "number",
+      "value": "[PLACEHOLDER]",
+      "example": "2026"
+    },
+    "advisor": {
+      "label": "ORIENTADOR(A)",
+      "type": "text",
+      "value": "[PLACEHOLDER]",
+      "example": "Profª. Drª. Poliana Guerino Marson"
+    },
+    "presentation_note": {
+      "label": "NOTA DE APRESENTAÇÃO",
+      "type": "textarea",
+      "value": "[PLACEHOLDER]",
+      "example": "Monografia apresentada à instituição como requisito parcial para obtenção do título."
+    }
+  },
+  "abstracts": {
+    "resumo": {
+      "label": "RESUMO",
+      "type": "rich_text",
+      "value": "[PLACEHOLDER]"
+    },
+    "palavras_chave": {
+      "label": "PALAVRAS-CHAVE",
+      "type": "tags",
+      "value": []
+    },
+    "abstract": {
+      "label": "ABSTRACT",
+      "type": "rich_text",
+      "value": "[PLACEHOLDER]"
+    },
+    "keywords": {
+      "label": "KEYWORDS",
+      "type": "tags",
+      "value": []
+    }
+  },
+  "table_of_contents": {
+    "label": "SUMÁRIO",
+    "type": "auto_generated",
+    "source": "sections",
+    "format": "numbered_with_page_placeholder"
+  },
+  "sections": [
+    {
+      "id": "1",
+      "title": "INTRODUÇÃO",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": []
+    },
+    {
+      "id": "2",
+      "title": "REFERENCIAL TEÓRICO",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": [
+        {
+          "id": "2.1",
+          "title": "[PLACEHOLDER]",
+          "content": "[PLACEHOLDER]",
+          "example": "Transtorno do estresse pós-traumático"
+        },
+        {
+          "id": "2.1.1",
+          "title": "[PLACEHOLDER]",
+          "content": "[PLACEHOLDER]",
+          "example": "Caracterização"
+        },
+        {
+          "id": "2.1.2",
+          "title": "[PLACEHOLDER]",
+          "content": "[PLACEHOLDER]",
+          "example": "Fisiopatologia"
+        },
+        {
+          "id": "2.1.3",
+          "title": "[PLACEHOLDER]",
+          "content": "[PLACEHOLDER]",
+          "example": "Terapêutica"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "KNOWLEDGE GAP",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": []
+    },
+    {
+      "id": "4",
+      "title": "RATIONALE",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": []
+    },
+    {
+      "id": "5",
+      "title": "OBJETIVOS",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": [
+        {
+          "id": "5.1",
+          "title": "Objetivo Geral",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "5.2",
+          "title": "Objetivos Específicos",
+          "content": "[PLACEHOLDER]"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "MÉTODOS",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": [
+        {
+          "id": "6.1",
+          "title": "Desenho do estudo",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.2",
+          "title": "Protocolo e registro",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.3",
+          "title": "Pergunta de pesquisa",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.4",
+          "title": "Estratégia PICO / PICOS / PCC",
+          "fields": {
+            "population": "[PLACEHOLDER]",
+            "intervention": "[PLACEHOLDER]",
+            "comparison": "[PLACEHOLDER]",
+            "outcome": "[PLACEHOLDER]",
+            "study_design": "[PLACEHOLDER]",
+            "context": "[PLACEHOLDER]"
+          }
+        },
+        {
+          "id": "6.5",
+          "title": "Fontes de informação",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.6",
+          "title": "Estratégia de busca",
+          "type": "search_strategy_table",
+          "databases": [
+            "PubMed/MEDLINE",
+            "Embase",
+            "Scopus",
+            "Web of Science",
+            "Cochrane Library",
+            "SciELO",
+            "LILACS",
+            "PsycINFO"
+          ],
+          "blocks": [
+            {
+              "descriptor": "[PLACEHOLDER]",
+              "query": "[PLACEHOLDER]"
+            }
+          ]
+        },
+        {
+          "id": "6.7",
+          "title": "Critérios de elegibilidade",
+          "fields": {
+            "inclusion_criteria": "[PLACEHOLDER]",
+            "exclusion_criteria": "[PLACEHOLDER]"
+          }
+        },
+        {
+          "id": "6.8",
+          "title": "Seleção dos estudos",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.9",
+          "title": "Extração dos dados",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.10",
+          "title": "Avaliação do risco de viés",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "6.11",
+          "title": "Síntese dos dados",
+          "content": "[PLACEHOLDER]"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "RESULTADOS",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": [
+        {
+          "id": "7.1",
+          "title": "Resultados da busca",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "7.2",
+          "title": "Características dos estudos incluídos",
+          "type": "study_characteristics_table",
+          "columns": [
+            "Autor",
+            "Ano",
+            "País",
+            "Desenho",
+            "Amostra",
+            "População",
+            "Intervenção/Exposição",
+            "Comparador",
+            "Desfechos",
+            "Principais resultados"
+          ]
+        },
+        {
+          "id": "7.3",
+          "title": "Risco de viés",
+          "type": "risk_of_bias_table",
+          "columns": [
+            "Estudo",
+            "Ferramenta utilizada",
+            "Domínios avaliados",
+            "Classificação",
+            "Justificativa"
+          ]
+        },
+        {
+          "id": "7.4",
+          "title": "Resultados individuais dos estudos",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "7.5",
+          "title": "Síntese dos resultados",
+          "content": "[PLACEHOLDER]"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "DISCUSSÃO",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": [
+        {
+          "id": "8.1",
+          "title": "Principais achados",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.2",
+          "title": "Interpretação dos resultados",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.3",
+          "title": "Comparação com a literatura",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.4",
+          "title": "Implicações científicas",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.5",
+          "title": "Implicações clínicas ou translacionais",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.6",
+          "title": "Limitações",
+          "content": "[PLACEHOLDER]"
+        },
+        {
+          "id": "8.7",
+          "title": "Perspectivas futuras",
+          "content": "[PLACEHOLDER]"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "CONCLUSÃO",
+      "type": "section",
+      "content": "[PLACEHOLDER]",
+      "subsections": []
+    }
+  ],
+  "framework_module": {
+    "enabled_if": [
+      "Framework Teórico",
+      "Hypothesis Paper",
+      "White Paper"
+    ],
+    "fields": {
+      "central_question": {
+        "label": "Pergunta central",
+        "type": "textarea",
+        "value": "[PLACEHOLDER]"
+      },
+      "core_hypothesis": {
+        "label": "Hipótese central",
+        "type": "textarea",
+        "value": "[PLACEHOLDER]"
+      },
+      "proposed_mechanism": {
+        "label": "Mecanismo proposto",
+        "type": "textarea",
+        "value": "[PLACEHOLDER]"
+      },
+      "conceptual_model": {
+        "label": "Modelo conceitual",
+        "type": "textarea",
+        "value": "[PLACEHOLDER]"
+      },
+      "theoretical_predictions": {
+        "label": "Predições teóricas",
+        "type": "list",
+        "items": []
+      },
+      "experimental_tests": {
+        "label": "Testes experimentais possíveis",
+        "type": "list",
+        "items": []
+      },
+      "clinical_implications": {
+        "label": "Implicações clínicas",
+        "type": "textarea",
+        "value": "[PLACEHOLDER]"
+      }
+    }
+  },
+  "prisma_module": {
+    "enabled_if": [
+      "Revisão Sistemática",
+      "Revisão Integrativa",
+      "Scoping Review",
+      "Overview",
+      "Meta-análise"
+    ],
+    "flowchart": {
+      "identified_records": "[PLACEHOLDER]",
+      "additional_records": "[PLACEHOLDER]",
+      "duplicates_removed": "[PLACEHOLDER]",
+      "records_screened": "[PLACEHOLDER]",
+      "records_excluded": "[PLACEHOLDER]",
+      "full_text_assessed": "[PLACEHOLDER]",
+      "full_text_excluded": "[PLACEHOLDER]",
+      "studies_included": "[PLACEHOLDER]"
+    },
+    "checklist": [
+      {
+        "section": "TITLE",
+        "item": "Identify the report as a systematic review, meta-analysis, or both.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "ABSTRACT",
+        "item": "Provide a structured summary.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "INTRODUCTION",
+        "item": "Describe the rationale and objectives.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "METHODS",
+        "item": "Describe protocol, eligibility criteria, information sources, search, selection, extraction, and risk of bias.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "RESULTS",
+        "item": "Present study selection, characteristics, risk of bias, and results.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "DISCUSSION",
+        "item": "Summarize evidence, limitations, and conclusions.",
+        "status": "[PLACEHOLDER]"
+      },
+      {
+        "section": "FUNDING",
+        "item": "Describe sources of funding and role of funders.",
+        "status": "[PLACEHOLDER]"
+      }
+    ]
+  },
+  "references": {
+    "label": "REFERÊNCIAS",
+    "type": "reference_manager",
+    "style_options": [
+      "Vancouver",
+      "ABNT",
+      "APA",
+      "AMA",
+      "Nature"
+    ],
+    "selected_style": "Vancouver",
+    "items": []
+  },
+  "appendices": [
+    {
+      "id": "A",
+      "title": "APÊNDICE I - Checklist PRISMA",
+      "content": "[PLACEHOLDER]"
+    },
+    {
+      "id": "B",
+      "title": "APÊNDICE II - Estratégias de busca completas",
+      "content": "[PLACEHOLDER]"
+    },
+    {
+      "id": "C",
+      "title": "APÊNDICE III - Tabelas suplementares",
+      "content": "[PLACEHOLDER]"
+    }
+  ],
+  "export": {
+    "formats": [
+      "HTML",
+      "DOCX",
+      "PDF"
+    ],
+    "include_metadata": true
+  }
+}
