@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Delyone Research 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Delyone Research 2</p>
+      <h1>Delyone Research 2</h1>
+      <p class="subtitle">Editor científico para estruturar pesquisas, revisões PRISMA e artigos com rascunho local e download direto em DOCX/PDF.</p>
+    </div>
+    <div class="header-actions">
+      <button id="btnSaveDraft">Salvar no navegador</button>
+      <button id="btnLoadDraft">Recuperar documento salvo</button>
+      <button id="btnExportDocx" class="primary">Download DOCX</button>
+      <button id="btnExportPdf">Download PDF</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card">
+        <h2>Projeto</h2>
+        <label>Nome do protocolo
+          <input id="protocolName" type="text" placeholder="Ex: Neurocolloidal Impedance Review" />
+        </label>
+        <label>Status
+          <select id="statusSelect"></select>
+        </label>
+        <label>Template
+          <select id="templateSelect">
+            <option value="GENERAL">GENERAL_template.json</option>
+            <option value="PRISMA">TEMPLATES/PRISMA_template.json</option>
+          </select>
+        </label>
+        <button id="btnLoadTemplate">Carregar template</button>
+        
+      </section>
+
+      <section class="card">
+        <h2>Navegação</h2>
+        <nav id="sectionNav" class="section-nav"></nav>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <section class="card">
+        <h2>Dados iniciais</h2>
+        <div id="frontMatter" class="grid"></div>
+      </section>
+
+      <section class="card">
+        <h2>Resumo / Abstract</h2>
+        <div id="abstractFields"></div>
+      </section>
+
+      <section class="card" id="prismaCard">
+        <h2>Módulo PRISMA</h2>
+        <div id="prismaFields"></div>
+      </section>
+
+      <section class="card" id="frameworkCard">
+        <h2>Módulo Framework</h2>
+        <div id="frameworkFields"></div>
+      </section>
+
+      <section class="card">
+        <h2>Corpo do documento</h2>
+        <div id="sectionsEditor"></div>
+      </section>
+    </section>
+
+    <aside class="preview-panel">
+      <section class="card sticky">
+        <div class="preview-head">
+          <h2>Prévia</h2>
+          <button id="btnRefreshPreview">Atualizar</button>
+        </div>
+        <article id="preview" class="document-preview"></article>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Copyright © 2026 Delyone de Paula Canedo Filho. All rights reserved.</p>
+  </footer>
+
+  <script>
+    if (sessionStorage.getItem("delyone_research_2_access") !== "granted") {
+      window.location.href = "../../index.html";
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
