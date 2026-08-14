@@ -25,7 +25,9 @@
       --idmt-muted: rgba(55, 53, 47, 0.68);
       --idmt-line: rgba(31, 95, 174, 0.20);
       --idmt-card: rgba(255, 255, 255, 0.86);
-      --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --idmt-green: #238b57;
+      --idmt-green-bg: #ecf8f1;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-serif: Lyon-Text, Georgia, ui-serif, serif;
     }
 
@@ -65,7 +67,8 @@
 
     /* === BOTÕES === */
     .idmt-cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1.45rem; }
-    .idmt-button { display: inline-block; padding: 0.78rem 1.05rem; border-radius: 99px; color: #fff !important; text-decoration: none !important; border: 1px solid rgba(255,255,255,0.18); background: rgba(31,95,174,0.34); backdrop-filter: blur(6px); font-weight: 600; box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+    .idmt-button { display: inline-block; padding: 0.78rem 1.05rem; border-radius: 99px; color: #fff !important; text-decoration: none !important; border: 1px solid rgba(255,255,255,0.18); background: rgba(31,95,174,0.34); backdrop-filter: blur(6px); font-weight: 600; box-shadow: 0 8px 22px rgba(0,0,0,0.18); transition: transform 0.2s ease; }
+    .idmt-button:hover { transform: translateY(-2px); }
     .idmt-button.secondary { background: rgba(255,255,255,0.08); }
     .idmt-button.gold { background: linear-gradient(135deg, rgba(56,125,201,0.72), rgba(26,74,136,0.84)); border-color: rgba(190,216,255,0.46); }
 
@@ -79,14 +82,24 @@
     .idmt-panel h1 { margin-top: 0; color: #0b1f3a; font-size: 1.8rem; letter-spacing: -0.02em; }
     .idmt-panel-lead { font-size: 1.05rem; color: rgba(31,41,51,0.78); }
 
-    /* === COMPONENTES ESPECÍFICOS === */
-    .idmt-mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin: 1.2rem 0; }
-    .idmt-mini-card { padding: 0.95rem; border-radius: 16px; background: rgba(255,255,255,0.82); border: 1px solid rgba(31,95,174,0.12); }
-    
-    .idmt-tool-card { display: block; margin-top: 1.1rem; padding: clamp(1.1rem, 4vw, 1.55rem); border-radius: 24px; text-decoration: none !important; border: 1px solid rgba(31,95,174,0.18); background: radial-gradient(circle at 50% 0%, rgba(96,165,250,0.18), transparent 18rem), linear-gradient(135deg, rgba(255,255,255,0.98), rgba(229,242,252,0.72)); box-shadow: 0 16px 38px rgba(7,20,38,0.10); color: #0b1f3a !important; }
+    /* === COMPONENTES E FERRAMENTAS === */
+    .idmt-tool-card { 
+      display: flex; 
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.1rem, 4vw, 1.55rem); 
+      border-radius: 24px; 
+      text-decoration: none !important; 
+      border: 1px solid rgba(31,95,174,0.18); 
+      background: radial-gradient(circle at 50% 0%, rgba(96,165,250,0.18), transparent 18rem), linear-gradient(135deg, rgba(255,255,255,0.98), rgba(229,242,252,0.72)); 
+      box-shadow: 0 16px 38px rgba(7,20,38,0.10); 
+      color: #0b1f3a !important; 
+      transition: all 0.3s ease;
+    }
+    .idmt-tool-card:hover { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(7,20,38,0.14); }
     .idmt-tool-card strong { font-size: clamp(1.18rem, 3.6vw, 1.55rem); line-height: 1.18; }
     .idmt-tool-card p { margin: 0.75rem 0 0; color: rgba(31,41,51,0.74); }
-    .idmt-tool-footer { display: inline-block; margin-top: 1rem; padding: 0.62rem 0.9rem; border-radius: 999px; color: #fff; background: linear-gradient(135deg, rgba(31,95,174,0.88), rgba(7,20,38,0.92)); font-size: 0.82rem; font-weight: 600; }
+    .idmt-tool-footer { display: inline-block; margin-top: 1.2rem; padding: 0.62rem 1rem; border-radius: 999px; color: #fff; background: linear-gradient(135deg, rgba(31,95,174,0.88), rgba(7,20,38,0.92)); font-size: 0.82rem; font-weight: 600; text-align: center; }
 
     /* Engines Map */
     .idmt-engine-map { margin-top: 1.35rem; display: grid; gap: 0.85rem; }
@@ -153,30 +166,46 @@
       <div class="idmt-card"><strong>Inovação aplicada</strong><span>Modelos clínicos e estruturas de decisão com uso prático.</span></div>
     </section>
 
-       <!-- SEÇÃO FERRAMENTAS EM DESENVOLVIMENTO -->
+    <!-- SEÇÃO FERRAMENTAS EM DESENVOLVIMENTO -->
     <section class="idmt-panel" id="ferramentas">
       <h1>Ferramentas em desenvolvimento</h1>
       <p class="idmt-panel-lead">Ambientes digitais e motores em fase de testes desenvolvidos para apoiar a decisão médica, pesquisa científica e organização institucional estruturada.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 1.2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 1.2rem;">
         
-        <!-- CARD 1: MEDUNITY -->
-        <a class="idmt-tool-card" href="https://instituto-delyone.github.io/Delyone-Medicine-Unity/" target="_blank" style="margin-top: 0;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-            <span style="font-size: 0.72rem; font-weight: 700; color: #238b57; background: #ecf8f1; border: 1px solid #c9ead8; padding: 0.25rem 0.6rem; border-radius: 8px;">MOTOR CLÍNICO V2.0</span>
+        <!-- CARD 1: DIAGNOSIS ENGINE (NOVO CARD IMPLEMENTADO) -->
+        <a class="idmt-tool-card" href="https://instituto-delyone.github.io/Diagnosis/" target="_blank">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #238b57; background: #ecf8f1; border: 1px solid #c9ead8; padding: 0.25rem 0.6rem; border-radius: 8px; letter-spacing: 0.05em; text-transform: uppercase;">AIGAR ENGINE V1.0</span>
+            </div>
+            <strong>Diagnosis Engine 🧠</strong>
+            <p>Plataforma de simulação e treino de raciocínio clínico baseada em Bayesianismo Funcional. Sincronizada com a base descentralizada de conhecimento do Instituto Delyone.</p>
           </div>
-          <strong>MedUnity Delyone</strong>
-          <p>Motor determinístico para automação documental médica, apoio à decisão clínica via IA (Diagnoses) e padronização canônica de prontuários.</p>
+          <span class="idmt-tool-footer">Acessar Simulador ➔</span>
+        </a>
+
+        <!-- CARD 2: MEDUNITY -->
+        <a class="idmt-tool-card" href="https://instituto-delyone.github.io/Delyone-Medicine-Unity/" target="_blank">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #1f5fae; background: #e5f2fc; border: 1px solid #cce4f7; padding: 0.25rem 0.6rem; border-radius: 8px; letter-spacing: 0.05em; text-transform: uppercase;">MOTOR CLÍNICO V2.0</span>
+            </div>
+            <strong>MedUnity Delyone 🩺</strong>
+            <p>Motor determinístico para automação documental médica, apoio à decisão clínica via IA e padronização canônica de prontuários em tempo real.</p>
+          </div>
           <span class="idmt-tool-footer">Acessar MedUnity ➔</span>
         </a>
 
-        <!-- CARD 2: RESEARCH TOOL -->
-        <a class="idmt-tool-card" href="#" style="margin-top: 0; opacity: 0.85; cursor: default;" onclick="event.preventDefault();">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-            <span style="font-size: 0.72rem; font-weight: 700; color: var(--idmt-muted); background: #f4f7f8; border: 1px solid #dce5e8; padding: 0.25rem 0.6rem; border-radius: 8px;">EM MANUTENÇÃO</span>
+        <!-- CARD 3: RESEARCH TOOL -->
+        <a class="idmt-tool-card" href="#" style="opacity: 0.85; cursor: default;" onclick="event.preventDefault();">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--idmt-muted); background: #f4f7f8; border: 1px solid #dce5e8; padding: 0.25rem 0.6rem; border-radius: 8px;">EM MANUTENÇÃO</span>
+            </div>
+            <strong>Delyone Research Tool 📄</strong>
+            <p>Ferramenta para estruturar protocolos, revisões e documentos científicos, com salvamento local no navegador e exportação em DOCX e PDF.</p>
           </div>
-          <strong>Delyone Research Tool</strong>
-          <p>Ferramenta para estruturar protocolos, revisões e documentos científicos, com salvamento local no navegador e exportação em DOCX e PDF.</p>
           <span class="idmt-tool-footer" style="background: var(--idmt-muted);">Link indisponível</span>
         </a>
 
@@ -218,7 +247,7 @@
         <div class="idmt-engine-node maestra"><strong>Aurora — Maestra</strong><span>Coordenação contextual, curadoria simbólica e integração.</span></div>
         <div class="idmt-engine-grid">
           <div class="idmt-engine-node"><strong>CSI Engine</strong><span>Linguagem, semântica e comunicação humana.</span></div>
-          <div class="idmt-engine-node"><strong>AIGAR Engine</strong><span>Lógica computacional e organização de contexto.</span></div>
+          <div class="idmt-engine-node"><strong>AIGAR Engine</strong><span>Lógica computacional, raciocínio bayesiano e organização de contexto.</span></div>
           <div class="idmt-engine-node"><strong>Visual Engine</strong><span>Interfaces, identidade visual e diagramas.</span></div>
         </div>
       </div>
@@ -234,11 +263,12 @@
 
       <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2rem;">
         <a class="idmt-button secondary" style="color:#0b1f3a !important" href="/engines/">Área de engines</a>
+        <a class="idmt-button secondary" style="color:#0b1f3a !important" href="https://instituto-delyone.github.io/Diagnosis/" target="_blank">Diagnosis 🧠</a>
         <a class="idmt-button secondary" style="color:#0b1f3a !important" href="https://instituto-delyone.github.io/Delyone-Medicine-Unity/" target="_blank">MedUnity 🩺</a>
       </div>
     </section>
 
-    <!-- TEXTO INSTITUCIONAL OTIMIZADO (NOTION CLEANUP) -->
+    <!-- TEXTO INSTITUCIONAL OTIMIZADO -->
     <article class="idmt-document">
       <p><strong>O instituto contempla o desenvolvimento de estruturas voltadas à organização do raciocínio clínico, com foco na padronização adaptativa da tomada de decisão, integração entre dados clínicos e condutas, e melhoria da consistência assistencial em diferentes contextos.</strong></p>
       <p>Esses modelos são baseados na estruturação lógica do processo decisório médico, permitindo aplicação prática em cenários reais, com potencial de expansão para sistemas assistenciais mais amplos.</p>
@@ -255,7 +285,6 @@
           <li><a href="#projetos">Projetos e Inovação</a></li>
           <li><a href="#saude-publica">Atuação em Saúde Pública e Parcerias</a></li>
           <li><a href="#governanca">Governança e Responsabilidade Técnica</a></li>
-          <li><a href="#conformidade">Conformidade Legal e Regulatória</a></li>
           <li><a href="#modelo-operacional">Modelo Operacional e Execução</a></li>
           <li><a href="#contato">Contato Institucional</a></li>
         </ol>
@@ -356,14 +385,14 @@
 
       <!-- SEÇÃO 10 -->
       <section id="modelo-operacional">
-        <h1>10. Modelo Operacional e Execução</h1>
+        <h1>9. Modelo Operacional e Execução</h1>
         <p>A atuação é orientada por uma abordagem clínica estruturada, baseada na avaliação sistemática do paciente, identificação de prioridades e definição de condutas seguras e eficientes. O fluxo assistencial segue uma estrutura lógica definida: entrada → avaliação → priorização → definição de conduta → destino clínico.</p>
         <a href="#sumario" class="back-to-top">↑ Voltar ao Sumário</a>
       </section>
 
       <!-- SEÇÃO 11 -->
       <section id="contato">
-        <h1>11. Contato Institucional</h1>
+        <h1>10. Contato Institucional</h1>
         <p>O Instituto opera com interface direta, priorizando comunicação objetiva e agilidade na formalização de parcerias.</p>
         <ul>
           <li>📧 E-mail: instituto@delyone.com</li>
