@@ -1,0 +1,35 @@
+name: 🚀 Deploy iOS - Diagnosis Engine
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: 📥 1. Baixar Código-Fonte
+        uses: actions/checkout@v3
+
+      - name: ⚙️ 2. Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 3. Instalar Dependências Base
+        run: npm install
+
+      - name: 🏗️ 4. Injetar Motor Web na Casca iOS (Capacitor)
+        run: |
+          npx cap add ios
+          npx cap sync ios
+
+      - name: 🍎 5. Preparação para Assinatura Apple
+        env:
+          APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APPSTORE_KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+        run: |
+          echo "O código HTML/JS foi injetado com sucesso no Xcode."
+          echo "Aguardando injeção dos certificados para compilação final."
