@@ -1,0 +1,6 @@
+{
+  "appId": "com.institutodelyone.diagnosis",
+  "appName": "Diagnosis Engine",
+  "webDir": "docs",
+  "bundledWebRuntime": false
+}
