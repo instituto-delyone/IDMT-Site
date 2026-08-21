@@ -1,16 +1,521 @@
-<!-- Card de Documentação Técnica & Review -->
-<div class="tech-card">
-  <span class="badge-pill">OVERVIEW INSTITUCIONAL & ARQUITETURA</span>
-  <span class="card-ref">RELATÓRIO TÉCNICO V1.0</span>
-  <h2 class="card-title">Ecossistema Operacional e Pipeline de IA</h2>
-  <p class="card-desc">
-    Visão aprofundada da infraestrutura tecnológica do Instituto, integrando o motor cognitivo Aiger, a rede criptográfica MedUnity e os módulos analíticos do Diagnosis.
-  </p>
-  <a href="/docs/review/index.html" class="card-btn">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-    </svg>
-    Acessar Documentação Completa
-  </a>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visão Geral e Arquitetura Tecnológica | Instituto Delyone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #070B12;
+      --bg-secondary: #0D1424;
+      --bg-card: #121B2F;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.25);
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --accent-blue: #0284C7;
+      --accent-cyan: #38BDF8;
+      --accent-emerald: #10B981;
+      --accent-indigo: #6366F1;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 11, 18, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .back-link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #fff; }
+
+    /* Layout */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: left;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 3rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 850px;
+      margin-bottom: 2rem;
+    }
+
+    /* Meta Badges Grid */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .cred-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+    }
+
+    .cred-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cred-val {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-top: 0.25rem;
+    }
+
+    /* Section Styles */
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Architecture Visualizer */
+    .pipeline-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 4rem;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+    }
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .pipe-node {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: all 0.3s;
+    }
+
+    .pipe-node:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .node-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .node-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .node-id {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+    }
+
+    .node-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Module Details Section */
+    .modules-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .module-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .module-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-aiger { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid rgba(99, 102, 241, 0.3); }
+    .badge-medunity { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-diag { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border: 1px solid rgba(56, 189, 248, 0.3); }
+
+    .module-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .module-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .features-list li {
+      font-size: 0.875rem;
+      color: #CBD5E1;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .features-list li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--accent-cyan);
+    }
+
+    .spec-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #94A3B8;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { color: var(--text-dim); }
+    .spec-val { color: var(--text-main); font-weight: 500; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    @media(max-width: 860px) {
+      .pipeline-grid { grid-template-columns: 1fr; }
+      .module-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      INSTITUTO DELYONE <span class="brand-tag">CORE DOCS</span>
+    </div>
+    <a href="/" class="back-link">&larr; Retornar à Plataforma</a>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero / Visão Geral -->
+    <section class="hero">
+      <div class="status-badge">
+        <span class="status-dot"></span> AMBIENTE DE AUDITORIA & ENGENHARIA DE PROTOCOLOS
+      </div>
+      <h1>Arquitetura do Instituto e Ecossistema de Soluções</h1>
+      <p class="lead-text">
+        O Instituto opera como uma central de pesquisa aplicada e desenvolvimento de tecnologia de alta precisão (Deep Tech), estruturando pipelines proprietários para persistência de contexto em IA, trânsito criptográfico de credenciais e auditoria de alto rigor para saúde e governança corporativa.
+      </p>
+
+      <div class="credentials-grid">
+        <div class="cred-item">
+          <div class="cred-label">Registro de Software & Patentes</div>
+          <div class="cred-val">INPI (2 PI Homologadas)</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-label">Credenciamento de Defesa</div>
+          <div class="cred-val">DUNS / NCAGE (OTAN)</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-label">Contratação Governamental</div>
+          <div class="cred-val">SAM.gov Verified</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-label">Ambiente de Validação</div>
+          <div class="cred-val">Hub / Padrões Hospitalares</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pipeline Visual de Integração -->
+    <section>
+      <h2 class="section-title">Fluxo Integrado de Processamento</h2>
+      <p class="section-subtitle">Como as camadas do sistema operam em sincronia a partir do perímetro de segurança até a camada de inferência.</p>
+
+      <div class="pipeline-container">
+        <div class="pipeline-grid">
+          
+          <div class="pipe-node">
+            <div class="node-header">
+              <span class="node-title">1. Borda & Segurança</span>
+              <span class="node-id">CLOUDFLARE WAF</span>
+            </div>
+            <p class="node-desc">
+              Filtragem de tráfego na borda, mitigação de abusos de API e despacho assíncrono para os módulos protegidos.
+            </p>
+          </div>
+
+          <div class="pipe-node">
+            <div class="node-header">
+              <span class="node-title">2. Aiger Core</span>
+              <span class="node-id">BR 10 2026 001743-4</span>
+            </div>
+            <p class="node-desc">
+              Gerenciamento assimétrico de contexto, seleção de vetores críticos e eliminação de ruído informacional.
+            </p>
+          </div>
+
+          <div class="pipe-node">
+            <div class="node-header">
+              <span class="node-title">3. MedUnity & Diagnosis</span>
+              <span class="node-id">BR 10 2026 019277-5</span>
+            </div>
+            <p class="node-desc">
+              Encapsulamento criptográfico sem token físico e triagem algorítmica de procedimentos e fluxos APAC.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalhamento das Ferramentas -->
+    <section>
+      <h2 class="section-title">Especificação dos Módulos Operacionais</h2>
+      <p class="section-subtitle">Engenharia dedicada, objetivos de negócio e patentes subjacentes.</p>
+
+      <div class="modules-stack">
+
+        <!-- AIGER -->
+        <article class="module-card">
+          <div>
+            <span class="module-badge badge-aiger">MOTOR DE CONTEXTO ASSIMÉTRICO</span>
+            <h3 class="module-name">Aiger</h3>
+            <p class="module-text">
+              O <strong>Aiger</strong> é a arquitetura neural do Instituto projetada para resolver a perda de consistência em longas sessões de inferência. Ele atua como um filtro e persistidor de memória de alta relevância, permitindo que IAs processem dados complexos sem estourar janelas de contexto nem gerar alucinações.
+            </p>
+            <ul class="features-list">
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Persistência Assimétrica:</strong> Classifica informações críticas descartando ruídos efêmeros.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Continuidade Lógica:</strong> Mantém o fio condutor de auditorias e raciocínios técnicos.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="spec-box">
+            <div class="spec-row"><span class="spec-key">Patente Base</span><span class="spec-val">BR 10 2026 001743-4</span></div>
+            <div class="spec-row"><span class="spec-key">Aplicação Primária</span><span class="spec-val">Engenharia de Prompt & Memória</span></div>
+            <div class="spec-row"><span class="spec-key">Eficiência de Tokens</span><span class="spec-val">Redução de até 65% em overhead</span></div>
+            <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val" style="color: var(--accent-emerald);">Operacional</span></div>
+          </div>
+        </article>
+
+        <!-- MEDUNITY -->
+        <article class="module-card">
+          <div>
+            <span class="module-badge badge-medunity">IDENTIDADE & CRIPTOGRAFIA</span>
+            <h3 class="module-name">MedUnity</h3>
+            <p class="module-text">
+              Plataforma para validação e acúmulo imutável de credenciais digitais. O <strong>MedUnity</strong> elimina a dependência de smartcards ou tokens físicos rígidos (A3) para assinaturas digitais, mantendo validade jurídica estrita através de encadeamento criptográfico dinâmico (hash-linking).
+            </p>
+            <ul class="features-list">
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Zero-Hardware Dependency:</strong> Validação em nuvem sem tokens físicos locais.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Conformidade Regulatória:</strong> Compatibilidade integral com padrões ICP-Brasil / X.509.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="spec-box">
+            <div class="spec-row"><span class="spec-key">Patente Base</span><span class="spec-val">BR 10 2026 019277-5</span></div>
+            <div class="spec-row"><span class="spec-key">Padrão Criptográfico</span><span class="spec-val">X.509 / Hash-Linking</span></div>
+            <div class="spec-row"><span class="spec-key">Segurança</span><span class="spec-val">Imutabilidade por Encadeamento</span></div>
+            <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val" style="color: var(--accent-emerald);">Operacional</span></div>
+          </div>
+        </article>
+
+        <!-- DIAGNOSIS -->
+        <article class="module-card">
+          <div>
+            <span class="module-badge badge-diag">AUDITORIA CLÍNICA & APAC</span>
+            <h3 class="module-name">Diagnosis</h3>
+            <p class="module-text">
+              O motor de auditoria e inteligência operacional focado no fluxo de <strong>APAC Perfeita</strong>. O <strong>Diagnosis</strong> confronta solicitações médicas, laudos e autorizações de alta complexidade com os critérios regulatórios em tempo real, eliminando glosas e acelerando tratamentos críticos.
+            </p>
+            <ul class="features-list">
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Triagem Automatizada:</strong> Validação imediata de laudos versus diretrizes de regulação.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+                <span><strong>Mitigação de Glosas:</strong> Precisão documental prévia ao envio às instâncias pagadoras.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="spec-box">
+            <div class="spec-row"><span class="spec-key">Domínio de Ação</span><span class="spec-val">Regulação e Auditoria SUS / B2B</span></div>
+            <div class="spec-row"><span class="spec-key">Mecanismo</span><span class="spec-val">Motor de Regras + Análise Semântica</span></div>
+            <div class="spec-row"><span class="spec-key">Integração</span><span class="spec-val">Prontuários e ERPs Hospitalares</span></div>
+            <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val" style="color: var(--accent-emerald);">Operacional</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer>
+      INSTITUTO DELYONE &copy; 2026 &bull; TODOS OS DIREITOS RESERVADOS &bull; DOCUMENTAÇÃO TÉCNICA RESTRITA
+    </footer>
+
+  </main>
+
+</body>
+</html>
