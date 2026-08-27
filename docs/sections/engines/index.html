@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área de Engines — Instituto Delyone</title>
+  
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <style>
+    /* === VARIÁVEIS E RESET (Herdados do IDMT principal) === */
+    :root {
+      --idmt-navy: #071426;
+      --idmt-blue: #1f5fae;
+      --idmt-ink: #1f2933;
+      --idmt-muted: rgba(55, 53, 47, 0.68);
+      --idmt-line: rgba(31, 95, 174, 0.20);
+      --idmt-card: rgba(255, 255, 255, 0.86);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top center, rgba(31,95,174,0.10), transparent 34rem), linear-gradient(180deg, #f7f9fc 0%, #ffffff 42%, #f7f9fc 100%);
+      color: var(--idmt-ink);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: var(--idmt-blue); font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.15rem 3rem; }
+
+    /* === HEADER SIMPLIFICADO === */
+    .idmt-header-sub {
+      padding: 3rem 1.25rem 2.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #02050a 0%, #071426 100%);
+      color: #f5f7fb;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 10px 30px rgba(7,20,38,0.25);
+      margin-bottom: 2.5rem;
+    }
+    .idmt-header-sub h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin: 0 0 0.5rem 0; letter-spacing: -0.03em; }
+    .idmt-header-sub p { color: rgba(245,247,251,0.80); font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem; }
+    
+    .btn-back {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .btn-back:hover { background: rgba(255,255,255,0.2); text-decoration: none; transform: translateY(-2px); }
+
+    /* === CARDS DE ENGINE === */
+    .engine-card {
+      background: var(--idmt-card);
+      border: 1px solid rgba(31,95,174,0.16);
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 14px 30px rgba(7,20,38,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .engine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+    }
+    .engine-card.csi::before { background: linear-gradient(180deg, #1f5fae, #60a5fa); }
+    .engine-card.diagnosis::before { background: linear-gradient(180deg, #238b57, #34d399); }
+
+    .engine-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .csi .engine-badge { color: #1f5fae; background: #e5f2fc; border: 1px solid #cce4f7; }
+    .diagnosis .engine-badge { color: #238b57; background: #ecf8f1; border: 1px solid #c9ead8; }
+
+    .engine-card h2 { font-size: 1.8rem; color: #0b1f3a; margin: 0 0 1rem 0; letter-spacing: -0.02em; }
+    .engine-card p { color: var(--idmt-muted); font-size: 1.05rem; margin-bottom: 1.2rem; }
+    
+    .feature-list { list-style: none; padding: 0; margin: 1.5rem 0 0 0; }
+    .feature-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #1f2933;
+    }
+    .feature-list li::before {
+      content: "➔";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--idmt-blue);
+      font-size: 0.9rem;
+    }
+
+    .footer { text-align: center; padding: 3rem 1rem; color: var(--idmt-muted); font-size: 0.9rem; border-top: 1px solid var(--idmt-line); margin-top: 3rem; }
+  </style>
+</head>
+<body>
+
+  <header class="idmt-header-sub">
+    <h1>Área de Engines</h1>
+    <p>A espinha dorsal computacional do Instituto Delyone: estruturação semântica e raciocínio clínico algorítmico.</p>
+    <a href="../index.html" class="btn-back">← Voltar ao site principal</a>
+  </header>
+
+  <main class="container">
+    
+    <!-- ENGINE: CSI -->
+    <div class="engine-card csi">
+      <span class="engine-badge">MOTOR SEMÂNTICO (DICIONÁRIO CANÔNICO)</span>
+      <h2>CSI Engine</h2>
+      <p><strong>Code for Semiological international Identification.</strong> O CSI é o tradutor universal do nosso ecossistema. Na prática médica, a informação chega de forma caótica: texto livre do prontuário, dados binários de monitores, HL7 de laboratórios. O CSI atua como um "Cubo de Rubik" semântico.</p>
+      <p>Ele recebe esses dados heterogêneos, rotaciona e alinha as informações estruturais, e as converte em uma linguagem padronizada, unificada e canônica. É essa fundação que permite que um único preenchimento gere múltiplos documentos institucionais distintos de forma automatizada.</p>
+      
+      <ul class="feature-list">
+        <li><strong>Desfragmentação de dados:</strong> Mapeia variáveis dispersas para um núcleo único de informação (Ficha-Mãe).</li>
+        <li><strong>Base Determinística:</strong> Garante que o dado extraído do monitor ou do HDA seja o exato dado injetado no laudo.</li>
+        <li><strong>Agnóstico de plataforma:</strong> Prepara o terreno de dados para ser consumido por IAs, ferramentas de pesquisa clínica (ensaios duplo-cegos) e geradores de documentos.</li>
+      </ul>
+    </div>
+
+    <!-- ENGINE: DIAGNOSIS -->
+    <div class="engine-card diagnosis">
+      <span class="engine-badge">MOTOR COGNITIVO (AIGAR ENGINE)</span>
+      <h2>Diagnosis Engine 🧠</h2>
+      <p>Se o CSI é a linguagem, o Diagnosis Engine é o raciocínio. Este é o nosso motor de inteligência e simulação clínica. Ele consome os dados já traduzidos e estruturados pelo CSI e aplica uma lógica computacional baseada no raciocínio médico estruturado.</p>
+      <p>Utilizando inferência Bayesiana e contextualização dinâmica, o Diagnosis Engine simula a tomada de decisão médica. Ele avalia hipóteses, sugere propedêuticas e auxilia na definição de condutas, sendo a base tecnológica tanto para o treinamento médico de alta performance quanto para sistemas de apoio à decisão na beira do leito.</p>
+      
+      <ul class="feature-list">
+        <li><strong>Raciocínio Estruturado:</strong> Decodificação analógico-digital do método diagnóstico clássico.</li>
+        <li><strong>Simbiose com o CSI:</strong> Utiliza a base de conhecimento e os termos padronizados para garantir precisão algorítmica.</li>
+        <li><strong>Memória de Contexto:</strong> Preserva a continuidade lógica do atendimento, adaptando as probabilidades de diagnóstico conforme novas evidências clínicas são inseridas.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    © Instituto Delyone de Medicina e Tecnologia. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
