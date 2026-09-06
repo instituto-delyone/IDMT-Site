@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delyone Research Tool | ROBIS & AMSTAR-2</title>
+    <style>
+        :root {
+            --idmt-navy: #071426;
+            --idmt-blue: #1f5fae;
+            --idmt-green: #238b57;
+            --idmt-canvas: #f7f9fc;
+            --idmt-ink: #1f2933;
+            --risk-low: #d4edda;
+            --risk-high: #f8d7da;
+            --risk-unclear: #fff3cd;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--idmt-canvas);
+            color: var(--idmt-ink);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--idmt-ink);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--idmt-green);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            color: var(--idmt-blue);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Tabela de Avaliação */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        th {
+            background-color: var(--idmt-navy);
+            color: white;
+            font-weight: 500;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Cores Dinâmicas baseadas na escolha (via JS simples) */
+        .low-risk { background-color: var(--risk-low); color: #155724; font-weight: bold; }
+        .high-risk { background-color: var(--risk-high); color: #721c24; font-weight: bold; }
+        .unclear-risk { background-color: var(--risk-unclear); color: #856404; font-weight: bold; }
+
+        .study-input {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Avaliação de Risco de Viés e Qualidade Metodológica</h2>
+        <p>Módulo: ROBIS / AMSTAR-2</p>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Voltar para o Fluxograma PRISMA</a>
+        
+        <p>Preencha os domínios de viés para os estudos incluídos na sua revisão integrativa/sistemática:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Autor/Ano do Estudo</th>
+                    <th>D1: Elegibilidade (PICO)</th>
+                    <th>D2: Busca/Identificação</th>
+                    <th>D3: Coleta/Avaliação de Dados</th>
+                    <th>D4: Síntese/Meta-análise</th>
+                    <th>Qualidade Global</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linha de Estudo 1 -->
+                <tr>
+                    <td><input type="text" class="study-input" placeholder="Ex: Mithoefer et al., 2010"></td>
+                    <td>
+                        <select onchange="updateColor(this)">
+                            <option value="">Selecione...</option>
+                            <option value="low">Baixo Risco (Low)</option>
+                            <option value="high">Alto Risco (High)</option>
+                            <option value="unclear">Incerto (Unclear)</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateColor(this)">
+                            <option value="">Selecione...</option>
+                            <option value="low">Baixo Risco</option>
+                            <option value="high">Alto Risco</option>
+                            <option value="unclear">Incerto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateColor(this)">
+                            <option value="">Selecione...</option>
+                            <option value="low">Baixo Risco</option>
+                            <option value="high">Alto Risco</option>
+                            <option value="unclear">Incerto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateColor(this)">
+                            <option value="">Selecione...</option>
+                            <option value="low">Baixo Risco</option>
+                            <option value="high">Alto Risco</option>
+                            <option value="unclear">Incerto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateColor(this)">
+                            <option value="">Selecione...</option>
+                            <option value="high">High Quality</option>
+                            <option value="low">Low Quality</option>
+                            <option value="high">Critically Low</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- Adicione mais linhas conforme necessário -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script simples para colorir as células com base na seleção de viés -->
+    <script>
+        function updateColor(selectElement) {
+            const value = selectElement.value;
+            selectElement.className = ''; // Reseta as classes
+            if (value === 'low') {
+                selectElement.classList.add('low-risk');
+            } else if (value === 'high') {
+                selectElement.classList.add('high-risk');
+            } else if (value === 'unclear') {
+                selectElement.classList.add('unclear-risk');
+            }
+        }
+    </script>
+</body>
+</html>
