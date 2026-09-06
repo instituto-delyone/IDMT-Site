@@ -3,127 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos Estruturados</title>
+    <title>Prospero Acadêmico - Estruturador</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f7f6;
-            color: #333;
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
             padding: 40px 20px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+
+        header {
             text-align: center;
-            color: #2c3e50;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
-        .project-section {
             margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #bdc3c7;
         }
-        .project-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary);
         }
-        h2 {
-            color: #2980b9;
-            font-size: 1.4em;
+
+        header p {
+            color: var(--text-muted);
         }
-        .meta-info {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
+
+        .block-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .block-header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .block-header h2 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .block-header span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"], 
+        input[type="number"], 
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, 
+        input[type="number"]:focus, 
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-label input {
+            margin-right: 8px;
+        }
+
+        .dynamic-card {
+            background-color: var(--bg-color);
+            border: 1px dashed var(--border);
+            padding: 20px;
+            border-radius: 6px;
             margin-bottom: 15px;
         }
-        .meta-info p {
-            margin: 5px 0;
-        }
-        .label {
-            font-weight: bold;
-            color: #34495e;
-        }
-        .abstract-box {
-            border-left: 4px solid #2980b9;
-            padding: 10px 15px;
-            background-color: #fafbfc;
-            margin: 15px 0;
-            font-style: italic;
-        }
-        ul {
-            margin-top: 5px;
-            padding-left: 20px;
-        }
-        code {
-            background-color: #dfe6e9;
-            padding: 2px 6px;
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
             border-radius: 4px;
-            font-size: 0.9em;
-            color: #d35400;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #eff6ff;
+        }
+
+        .export-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .export-btn {
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            background-color: #10b981;
+        }
+
+        .export-btn:hover {
+            background-color: #059669;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Organização de Textos Acadêmicos</h1>
+        <header>
+            <h1>Estruturador de Artigos</h1>
+            <p>Preencha os blocos lógicos. O sistema formata o resto.</p>
+        </header>
 
-        <!-- Seção: TCC -->
-        <div class="project-section" id="tcc">
-            <h2>1. Trabalho de Conclusão de Curso (TCC)</h2>
+        <form id="articleForm" onsubmit="event.preventDefault(); exportData();">
             
-            <div class="meta-info">
-                <p><span class="label">Nome do Arquivo:</span> <code>[TCC]_MDMA_TEPT_Revisao_Integrativa_v1.docx</code></p>
-                <p><span class="label">Título/Tema:</span> O Potencial do MDMA como Ferramenta no Tratamento do Transtorno de Estresse Pós-Traumático (TEPT): Uma Revisão Integrativa.</p>
-                <p><span class="label">Prismas:</span> Farmacologia Psiquiátrica, Inovação Terapêutica, Saúde Mental, Revisão Clínica.</p>
+            <!-- BLOCO 1 -->
+            <section class="block-section">
+                <div class="block-header">
+                    <h2>Bloco 1: Identidade <span>(A bússola da pesquisa)</span></h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>Título do Projeto</label>
+                    <input type="text" id="titulo" placeholder="Ex: O Potencial do MDMA no Tratamento do TEPT...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Rationale / Justificativa</label>
+                    <textarea id="rationale" placeholder="Por que o mundo precisa ler isso? (Seja direto)"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pergunta de Pesquisa</label>
+                        <input type="text" id="pergunta" placeholder="O que você quer descobrir?">
+                    </div>
+                    <div class="form-group">
+                        <label>Prismas (Palavras-chave)</label>
+                        <input type="text" id="prismas" placeholder="Ex: MDMA, PTSD, Treatment (separados por vírgula)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Abstract Provisório</label>
+                    <textarea id="abstract" placeholder="Resuma a ideia central em um parágrafo."></textarea>
+                </div>
+            </section>
+
+            <!-- BLOCO 2 -->
+            <section class="block-section">
+                <div class="block-header">
+                    <h2>Bloco 2: Motor Metodológico <span>(Fluxo PRISMA)</span></h2>
+                </div>
+
+                <div class="form-group">
+                    <label>Bases Consultadas</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" value="PubMed"> PubMed</label>
+                        <label class="checkbox-label"><input type="checkbox" value="SciELO"> SciELO</label>
+                        <label class="checkbox-label"><input type="checkbox" value="LILACS"> LILACS</label>
+                        <label class="checkbox-label">Outra: <input type="text" style="width: 150px; margin-left: 10px; padding: 4px;" placeholder="Qual?"></label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Registros Encontrados (Busca Bruta)</label>
+                        <input type="number" id="n1" placeholder="N =">
+                    </div>
+                    <div class="form-group">
+                        <label>Excluídos por Título/Resumo</label>
+                        <input type="number" id="n2" placeholder="N =">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Artigos Lidos na Íntegra</label>
+                        <input type="number" id="n3" placeholder="N =">
+                    </div>
+                    <div class="form-group">
+                        <label>Estudos Finais Incluídos (Síntese)</label>
+                        <input type="number" id="n4" placeholder="N =">
+                    </div>
+                </div>
+            </section>
+
+            <!-- BLOCO 3 -->
+            <section class="block-section">
+                <div class="block-header">
+                    <h2>Bloco 3: Síntese de Evidências <span>(Cartões de Extração)</span></h2>
+                </div>
+                
+                <div id="evidence-container">
+                    <!-- Cartões dinâmicos entram aqui -->
+                </div>
+                
+                <button type="button" class="btn btn-secondary" onclick="addEvidence()">+ Adicionar Estudo</button>
+            </section>
+
+            <!-- BLOCO 4 -->
+            <section class="block-section">
+                <div class="block-header">
+                    <h2>Bloco 4: Gaveta de Referências <span>(Dados Brutos)</span></h2>
+                </div>
+                
+                <div id="reference-container">
+                    <!-- Referências dinâmicas entram aqui -->
+                </div>
+                
+                <button type="button" class="btn btn-secondary" onclick="addReference()">+ Adicionar Referência</button>
+            </section>
+
+            <div class="export-section">
+                <button type="submit" class="btn export-btn">Gerar Estrutura de Dados</button>
             </div>
-
-            <div class="abstract-box">
-                <p><span class="label">Abstract:</span> Esta versão avalia a eficácia da psicoterapia assistida por MDMA para pacientes com TEPT, focando especialmente naqueles que apresentam quadros crônicos e refratários aos tratamentos convencionais (como o uso de ISRSs e psicoterapias baseadas em exposição). O texto ressalta que a intervenção diminui a hiperatividade da amígdala e fortalece o vínculo terapeuta-paciente, resultando em uma redução significativa e duradoura da sintomatologia, além de demonstrar um perfil de segurança confiável em ambientes monitorados.</p>
-            </div>
-
-            <p><span class="label">Referências Base:</span></p>
-            <ul>
-                <li>MITHOEFER et al. (2010; 2013)</li>
-                <li>SESSA (2017)</li>
-                <li>APA (2013)</li>
-                <li>FOA et al. (2009)</li>
-                <li>BANDELOW (2016)</li>
-            </ul>
-        </div>
-
-        <!-- Seção: Pré-projeto -->
-        <div class="project-section" id="pre-projeto">
-            <h2>2. Pré-projeto de Pesquisa</h2>
-            
-            <div class="meta-info">
-                <p><span class="label">Nome do Arquivo:</span> <code>[Pre-Projeto]_Epidemiologia_Tuberculose_TO_v1.docx</code></p>
-                <p><span class="label">Título/Tema:</span> Tuberculose no Estado do Tocantins, Brasil: Uma Avaliação da Epidemiologia entre 2010 e 2015.</p>
-                <p><span class="label">Prismas:</span> Epidemiologia, Saúde Pública, Medicina Tropical, Perfil Sociodemográfico.</p>
-            </div>
-
-            <div class="abstract-box">
-                <p><span class="label">Abstract:</span> O projeto propõe uma investigação sistemática sobre o perfil dos indivíduos diagnosticados com tuberculose no estado do Tocantins ao longo de um recorte temporal de cinco anos. O foco é mapear as características sociodemográficas e de saúde dessa população para compreender a distribuição da doença, fornecendo dados essenciais que podem embasar a otimização de políticas de rastreio e tratamento a nível estadual.</p>
-            </div>
-
-            <p><span class="label">Referências Base:</span></p>
-            <ul>
-                <li><em>[Pendente] A serem editadas e inseridas na formatação final, utilizando as fontes epidemiológicas e dados do DATASUS.</em></li>
-            </ul>
-        </div>
-
+        </form>
     </div>
 
+    <script>
+        let evidenceCount = 0;
+        let referenceCount = 0;
+
+        function addEvidence() {
+            evidenceCount++;
+            const container = document.getElementById('evidence-container');
+            const card = document.createElement('div');
+            card.className = 'dynamic-card';
+            card.innerHTML = `
+                <label>Estudo ${evidenceCount} (Autor e Ano)</label>
+                <input type="text" class="form-group" placeholder="Ex: Mithoefer et al. (2010)">
+                <label>Qual foi a descoberta?</label>
+                <textarea class="form-group" placeholder="Principais achados..."></textarea>
+                <label>Como isso responde à pergunta de pesquisa?</label>
+                <textarea placeholder="Conexão com o rationale..."></textarea>
+            `;
+            container.appendChild(card);
+        }
+
+        function addReference() {
+            referenceCount++;
+            const container = document.getElementById('reference-container');
+            const card = document.createElement('div');
+            card.className = 'form-row dynamic-card';
+            card.innerHTML = `
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Citação no texto</label>
+                    <input type="text" placeholder="Ex: (SESSA, 2017)">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>DOI ou Link da Fonte</label>
+                    <input type="text" placeholder="Ex: 10.1016/j.neulet.2016...">
+                </div>
+            `;
+            container.appendChild(card);
+        }
+
+        // Inicializa com 1 cartão em cada bloco
+        window.onload = () => {
+            addEvidence();
+            addReference();
+        };
+
+        function exportData() {
+            alert('Formulário capturado! O próximo passo será conectar isso ao Python/Docx para gerar o arquivo final formatado.');
+            // Aqui futuramente extrairemos os valores via JS e enviaremos para o backend.
+        }
+    </script>
 </body>
 </html>
