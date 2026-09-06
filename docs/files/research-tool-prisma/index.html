@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delyone Research Tool | PRISMA Flowchart</title>
+    <style>
+        :root {
+            --idmt-navy: #071426;
+            --idmt-blue: #1f5fae;
+            --idmt-green: #238b57;
+            --idmt-canvas: #f7f9fc;
+            --idmt-ink: #1f2933;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--idmt-canvas);
+            color: var(--idmt-ink);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--idmt-navy);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--idmt-blue);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Estilo do Fluxograma PRISMA */
+        .prisma-step {
+            background: white;
+            border-left: 5px solid var(--idmt-blue);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .prisma-step h3 {
+            margin: 0 0 10px 0;
+            color: var(--idmt-navy);
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--idmt-green);
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 24px;
+            color: var(--idmt-blue);
+            margin: -15px 0 10px 0;
+        }
+
+        .btn-robis {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--idmt-blue);
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 40px;
+            transition: background 0.3s;
+        }
+
+        .btn-robis:hover {
+            background-color: var(--idmt-navy);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Delyone Research Tool</h1>
+        <p>Módulo: Revisão Sistemática (Protocolo PRISMA)</p>
+    </header>
+
+    <div class="container">
+        <!-- Fase 1: Identificação -->
+        <div class="prisma-step">
+            <input type="checkbox" id="check-id">
+            <div class="step-content">
+                <h3>1. Identificação</h3>
+                <div class="input-group">
+                    <label>Estudos obtidos nas bases de dados (PubMed, BVS, etc):</label>
+                    <input type="number" placeholder="n=">
+                </div>
+                <div class="input-group">
+                    <label>Estudos obtidos por busca manual/referências:</label>
+                    <input type="number" placeholder="n=">
+                </div>
+                <div class="input-group">
+                    <label>Artigos duplicados removidos:</label>
+                    <input type="number" placeholder="n=">
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Fase 2: Triagem (Screening) -->
+        <div class="prisma-step">
+            <input type="checkbox" id="check-screen">
+            <div class="step-content">
+                <h3>2. Seleção (Triagem)</h3>
+                <div class="input-group">
+                    <label>Títulos e resumos avaliados:</label>
+                    <input type="number" placeholder="n=">
+                </div>
+                <div class="input-group">
+                    <label>Registros excluídos após leitura de resumo:</label>
+                    <input type="number" placeholder="n=">
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Fase 3: Elegibilidade -->
+        <div class="prisma-step">
+            <input type="checkbox" id="check-elig">
+            <div class="step-content">
+                <h3>3. Elegibilidade</h3>
+                <div class="input-group">
+                    <label>Artigos lidos na íntegra:</label>
+                    <input type="number" placeholder="n=">
+                </div>
+                <div class="input-group">
+                    <label>Artigos excluídos (Justificar motivos):</label>
+                    <input type="number" placeholder="n=">
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Fase 4: Inclusão -->
+        <div class="prisma-step" style="border-left-color: var(--idmt-green);">
+            <input type="checkbox" id="check-incl">
+            <div class="step-content">
+                <h3>4. Inclusão</h3>
+                <div class="input-group">
+                    <label><strong>Estudos finais incluídos na síntese qualitativa/quantitativa:</strong></label>
+                    <input type="number" placeholder="n=" style="border-color: var(--idmt-green); font-weight: bold;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Link para a página ROBIS -->
+        <a href="robis/index.html" class="btn-robis">Avançar para Análise de Risco de Viés (ROBIS / AMSTAR-2) →</a>
+    </div>
+
+</body>
+</html>
