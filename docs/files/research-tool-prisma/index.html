@@ -3,188 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delyone Research Tool | PRISMA Flowchart</title>
+    <title>Projetos Estruturados</title>
     <style>
-        :root {
-            --idmt-navy: #071426;
-            --idmt-blue: #1f5fae;
-            --idmt-green: #238b57;
-            --idmt-canvas: #f7f9fc;
-            --idmt-ink: #1f2933;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--idmt-canvas);
-            color: var(--idmt-ink);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
             margin: 0;
-            padding: 0;
+            padding: 40px 20px;
         }
-
-        header {
-            background-color: var(--idmt-navy);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--idmt-blue);
-        }
-
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        /* Estilo do Fluxograma PRISMA */
-        .prisma-step {
-            background: white;
-            border-left: 5px solid var(--idmt-blue);
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .prisma-step h3 {
-            margin: 0 0 10px 0;
-            color: var(--idmt-navy);
-        }
-
-        .step-content {
-            flex-grow: 1;
-        }
-
-        .input-group {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        input[type="number"] {
-            width: 80px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            accent-color: var(--idmt-green);
-        }
-
-        .arrow {
+        h1 {
             text-align: center;
-            font-size: 24px;
-            color: var(--idmt-blue);
-            margin: -15px 0 10px 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
         }
-
-        .btn-robis {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--idmt-blue);
-            color: white;
+        .project-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #bdc3c7;
+        }
+        .project-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        h2 {
+            color: #2980b9;
+            font-size: 1.4em;
+        }
+        .meta-info {
+            background-color: #ecf0f1;
             padding: 15px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            margin-top: 40px;
-            transition: background 0.3s;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
-
-        .btn-robis:hover {
-            background-color: var(--idmt-navy);
+        .meta-info p {
+            margin: 5px 0;
+        }
+        .label {
+            font-weight: bold;
+            color: #34495e;
+        }
+        .abstract-box {
+            border-left: 4px solid #2980b9;
+            padding: 10px 15px;
+            background-color: #fafbfc;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        code {
+            background-color: #dfe6e9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #d35400;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Delyone Research Tool</h1>
-        <p>Módulo: Revisão Sistemática (Protocolo PRISMA)</p>
-    </header>
-
     <div class="container">
-        <!-- Fase 1: Identificação -->
-        <div class="prisma-step">
-            <input type="checkbox" id="check-id">
-            <div class="step-content">
-                <h3>1. Identificação</h3>
-                <div class="input-group">
-                    <label>Estudos obtidos nas bases de dados (PubMed, BVS, etc):</label>
-                    <input type="number" placeholder="n=">
-                </div>
-                <div class="input-group">
-                    <label>Estudos obtidos por busca manual/referências:</label>
-                    <input type="number" placeholder="n=">
-                </div>
-                <div class="input-group">
-                    <label>Artigos duplicados removidos:</label>
-                    <input type="number" placeholder="n=">
-                </div>
+        <h1>Organização de Textos Acadêmicos</h1>
+
+        <!-- Seção: TCC -->
+        <div class="project-section" id="tcc">
+            <h2>1. Trabalho de Conclusão de Curso (TCC)</h2>
+            
+            <div class="meta-info">
+                <p><span class="label">Nome do Arquivo:</span> <code>[TCC]_MDMA_TEPT_Revisao_Integrativa_v1.docx</code></p>
+                <p><span class="label">Título/Tema:</span> O Potencial do MDMA como Ferramenta no Tratamento do Transtorno de Estresse Pós-Traumático (TEPT): Uma Revisão Integrativa.</p>
+                <p><span class="label">Prismas:</span> Farmacologia Psiquiátrica, Inovação Terapêutica, Saúde Mental, Revisão Clínica.</p>
             </div>
+
+            <div class="abstract-box">
+                <p><span class="label">Abstract:</span> Esta versão avalia a eficácia da psicoterapia assistida por MDMA para pacientes com TEPT, focando especialmente naqueles que apresentam quadros crônicos e refratários aos tratamentos convencionais (como o uso de ISRSs e psicoterapias baseadas em exposição). O texto ressalta que a intervenção diminui a hiperatividade da amígdala e fortalece o vínculo terapeuta-paciente, resultando em uma redução significativa e duradoura da sintomatologia, além de demonstrar um perfil de segurança confiável em ambientes monitorados.</p>
+            </div>
+
+            <p><span class="label">Referências Base:</span></p>
+            <ul>
+                <li>MITHOEFER et al. (2010; 2013)</li>
+                <li>SESSA (2017)</li>
+                <li>APA (2013)</li>
+                <li>FOA et al. (2009)</li>
+                <li>BANDELOW (2016)</li>
+            </ul>
         </div>
 
-        <div class="arrow">↓</div>
-
-        <!-- Fase 2: Triagem (Screening) -->
-        <div class="prisma-step">
-            <input type="checkbox" id="check-screen">
-            <div class="step-content">
-                <h3>2. Seleção (Triagem)</h3>
-                <div class="input-group">
-                    <label>Títulos e resumos avaliados:</label>
-                    <input type="number" placeholder="n=">
-                </div>
-                <div class="input-group">
-                    <label>Registros excluídos após leitura de resumo:</label>
-                    <input type="number" placeholder="n=">
-                </div>
+        <!-- Seção: Pré-projeto -->
+        <div class="project-section" id="pre-projeto">
+            <h2>2. Pré-projeto de Pesquisa</h2>
+            
+            <div class="meta-info">
+                <p><span class="label">Nome do Arquivo:</span> <code>[Pre-Projeto]_Epidemiologia_Tuberculose_TO_v1.docx</code></p>
+                <p><span class="label">Título/Tema:</span> Tuberculose no Estado do Tocantins, Brasil: Uma Avaliação da Epidemiologia entre 2010 e 2015.</p>
+                <p><span class="label">Prismas:</span> Epidemiologia, Saúde Pública, Medicina Tropical, Perfil Sociodemográfico.</p>
             </div>
+
+            <div class="abstract-box">
+                <p><span class="label">Abstract:</span> O projeto propõe uma investigação sistemática sobre o perfil dos indivíduos diagnosticados com tuberculose no estado do Tocantins ao longo de um recorte temporal de cinco anos. O foco é mapear as características sociodemográficas e de saúde dessa população para compreender a distribuição da doença, fornecendo dados essenciais que podem embasar a otimização de políticas de rastreio e tratamento a nível estadual.</p>
+            </div>
+
+            <p><span class="label">Referências Base:</span></p>
+            <ul>
+                <li><em>[Pendente] A serem editadas e inseridas na formatação final, utilizando as fontes epidemiológicas e dados do DATASUS.</em></li>
+            </ul>
         </div>
 
-        <div class="arrow">↓</div>
-
-        <!-- Fase 3: Elegibilidade -->
-        <div class="prisma-step">
-            <input type="checkbox" id="check-elig">
-            <div class="step-content">
-                <h3>3. Elegibilidade</h3>
-                <div class="input-group">
-                    <label>Artigos lidos na íntegra:</label>
-                    <input type="number" placeholder="n=">
-                </div>
-                <div class="input-group">
-                    <label>Artigos excluídos (Justificar motivos):</label>
-                    <input type="number" placeholder="n=">
-                </div>
-            </div>
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <!-- Fase 4: Inclusão -->
-        <div class="prisma-step" style="border-left-color: var(--idmt-green);">
-            <input type="checkbox" id="check-incl">
-            <div class="step-content">
-                <h3>4. Inclusão</h3>
-                <div class="input-group">
-                    <label><strong>Estudos finais incluídos na síntese qualitativa/quantitativa:</strong></label>
-                    <input type="number" placeholder="n=" style="border-color: var(--idmt-green); font-weight: bold;">
-                </div>
-            </div>
-        </div>
-
-        <!-- Link para a página ROBIS -->
-        <a href="robis/index.html" class="btn-robis">Avançar para Análise de Risco de Viés (ROBIS / AMSTAR-2) →</a>
     </div>
 
 </body>
